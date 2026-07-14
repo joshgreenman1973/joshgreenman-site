@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Josh Greenman</title>
+<meta name="description" content="Josh Greenman writes about New York City and builds small tools that try to make it legible." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   JOSH GREENMAN — a broadsheet for one
+   Palette: warm newsprint, ink black, vermilion
+   Type: Fraunces (display) / Newsreader (text) / Space Mono (labels)
+   ============================================================ */
+
+:root{
+  --paper:#f4efe4;
+  --paper-2:#efe9db;
+  --ink:#181410;
+  --ink-soft:#4a4238;
+  --ink-faint:#8b8172;
+  --rule:#cabfa8;
+  --rule-soft:#ddd4c0;
+  --vermilion:#c4401b;
+  --vermilion-deep:#a5330f;
+  --marine:#26485a;
+  --shadow:rgba(30,22,12,.12);
+  --maxw:1140px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Newsreader",Georgia,serif;
+  font-optical-sizing:auto;
+  font-size:19px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+
+/* paper grain */
+body::before{
+  content:"";
+  position:fixed;inset:0;
+  z-index:0;pointer-events:none;
+  opacity:.4;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+}
+
+.wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+
+a{color:inherit;text-decoration:none}
+
+/* ---------- selection ---------- */
+::selection{background:var(--vermilion);color:var(--paper)}
+
+/* ---------- shared labels ---------- */
+.kicker{
+  font-family:"Space Mono",ui-monospace,monospace;
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--vermilion-deep);
+}
+.mono{font-family:"Space Mono",ui-monospace,monospace}
+
+/* ==========================================================
+   MASTHEAD
+   ========================================================== */
+.masthead{padding-top:34px}
+.tape{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-family:"Space Mono",monospace;
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-soft);
+  border-bottom:1px solid var(--rule);
+  padding-bottom:9px;
+}
+.tape span{white-space:nowrap}
+.tape .mid{color:var(--ink);letter-spacing:.2em}
+.tape .r{text-align:right}
+
+.nameplate{
+  margin:0;
+  padding:min(3.6vw,36px) 0 min(2vw,18px);
+  text-align:left;
+  font-family:"Fraunces",serif;
+  font-weight:540;
+  font-optical-sizing:auto;
+  font-size:clamp(37px,6.2vw,74px);
+  line-height:.98;
+  letter-spacing:-.028em;
+  color:var(--ink);
+}
+
+/* ---------- nav ---------- */
+nav.deck{
+  display:flex;justify-content:flex-start;flex-wrap:wrap;gap:4px 30px;
+  padding:14px 0 16px;
+  border-bottom:1px solid var(--rule);
+  font-family:"Space Mono",monospace;
+  font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;
+}
+nav.deck a{
+  color:var(--ink-soft);position:relative;padding:4px 0;
+  transition:color .25s;
+}
+nav.deck a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--vermilion);transition:width .3s ease;
+}
+nav.deck a:hover{color:var(--ink)}
+nav.deck a:hover::after{width:100%}
+
+/* ==========================================================
+   LEDE / BIO
+   ========================================================== */
+.lede{
+  padding:min(9vw,84px) 0 min(7vw,64px);
+  border-bottom:1px solid var(--rule);
+}
+.lede-grid{display:grid;grid-template-columns:1fr;gap:24px}
+@media(min-width:820px){
+  .lede-grid{grid-template-columns:1.55fr .95fr;gap:64px;align-items:start}
+  /* the short measure only makes sense as a left column, not stacked */
+  .lede .opener{max-width:34ch}
+}
+.lede p{
+  font-size:clamp(20px,2.5vw,27px);
+  line-height:1.5;margin:0 0 1.05em;
+  color:var(--ink);
+  font-weight:380;
+  letter-spacing:-.005em;
+}
+.lede .opener{margin-bottom:0}
+.lede .body p{font-size:clamp(19px,2vw,21px);line-height:1.62}
+.lede .body{padding-top:0}
+.lede .body p{color:var(--ink-soft)}
+.lede .body p em{font-style:italic;color:var(--ink)}
+.pull{
+  margin-top:30px;padding-top:20px;border-top:1px solid var(--rule-soft);
+  font-family:"Fraunces",serif;font-style:italic;font-weight:400;
+  font-size:clamp(19px,2vw,22px);line-height:1.4;color:var(--ink);
+}
+.pull b{color:var(--vermilion-deep);font-style:normal;font-weight:600}
+
+/* ==========================================================
+   SECTION HEADERS
+   ========================================================== */
+section{padding:min(9vw,78px) 0}
+section + section{border-top:1px solid var(--rule)}
+.sec-head{
+  display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.sec-num{
+  font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.1em;
+  color:var(--vermilion);padding-top:6px;
+}
+.sec-title{
+  font-family:"Fraunces",serif;font-weight:560;font-optical-sizing:auto;
+  font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:-.02em;margin:0;
+}
+.sec-note{
+  margin-left:auto;max-width:30ch;font-size:15px;line-height:1.5;
+  color:var(--ink-soft);font-style:italic;
+}
+
+/* ==========================================================
+   WRITING
+   ========================================================== */
+.outlets{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:44px;
+}
+.outlet{
+  font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.08em;
+  text-transform:uppercase;
+  border:1px solid var(--rule);border-radius:2px;
+  padding:8px 13px;color:var(--ink-soft);
+  display:inline-flex;align-items:baseline;gap:8px;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.outlet b{color:var(--ink);font-weight:700}
+.outlet .role{color:var(--vermilion-deep)}
+a.outlet:hover{border-color:var(--ink);color:var(--ink);background:var(--paper-2)}
+
+.toc{border-top:1px solid var(--ink)}
+.toc a{
+  display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:14px;
+  padding:17px 4px;border-bottom:1px solid var(--rule-soft);
+  transition:padding .3s ease,background .25s;
+}
+.toc a:hover{padding-left:16px;background:linear-gradient(90deg,rgba(196,64,27,.06),transparent 60%)}
+.toc .t{
+  font-family:"Fraunces",serif;font-weight:480;font-size:clamp(19px,2.4vw,25px);
+  line-height:1.22;letter-spacing:-.01em;color:var(--ink);
+  position:relative;
+}
+.toc .t .arw{color:var(--vermilion);opacity:0;margin-left:.4em;
+  transition:opacity .25s,transform .25s;display:inline-block}
+.toc a:hover .t .arw{opacity:1;transform:translateX(3px)}
+.toc .m{
+  font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-faint);text-align:right;white-space:nowrap;
+}
+.toc .m b{color:var(--vermilion-deep);font-weight:400}
+.archive{
+  margin-top:26px;font-family:"Space Mono",monospace;font-size:13px;
+  letter-spacing:.05em;color:var(--ink-soft);
+}
+.archive a{border-bottom:1px solid var(--rule);padding-bottom:1px;color:var(--ink);transition:border-color .2s}
+.archive a:hover{border-color:var(--vermilion)}
+
+/* ==========================================================
+   EXPERIMENTS
+   ========================================================== */
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);
+}
+.card{
+  background:var(--paper);
+  padding:26px 24px 22px;
+  display:flex;flex-direction:column;min-height:210px;
+  position:relative;isolation:isolate;
+  transition:background .3s,transform .3s;
+}
+.card::before{
+  content:"";position:absolute;left:0;top:0;height:3px;width:0;
+  background:var(--vermilion);transition:width .4s ease;z-index:2;
+}
+.card:hover{background:var(--paper-2)}
+.card:hover::before{width:100%}
+.card .ck{margin-bottom:16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.card .no{font-family:"Space Mono",monospace;font-size:11px;color:var(--ink-faint);letter-spacing:.1em}
+.card h3{
+  font-family:"Fraunces",serif;font-weight:560;font-optical-sizing:auto;
+  font-size:24px;line-height:1.08;letter-spacing:-.015em;margin:0 0 10px;color:var(--ink);
+}
+.card p{font-size:16px;line-height:1.44;color:var(--ink-soft);margin:0}
+.card .go{
+  margin-top:auto;padding-top:18px;
+  font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:8px;
+}
+.card .go .x{color:var(--vermilion);transition:transform .3s}
+.card:hover .go .x{transform:translate(3px,-3px)}
+
+.more{
+  margin-top:26px;text-align:center;
+  font-family:"Fraunces",serif;font-style:italic;font-size:clamp(18px,2vw,22px);color:var(--ink-soft);
+}
+.more a{color:var(--ink);border-bottom:2px solid var(--vermilion);padding-bottom:1px;font-style:normal;font-weight:500}
+.more a:hover{color:var(--vermilion-deep)}
+
+/* ==========================================================
+   ELSEWHERE
+   ========================================================== */
+.links{border-top:1px solid var(--ink)}
+.links a{
+  display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:18px;
+  padding:22px 4px;border-bottom:1px solid var(--rule-soft);
+  transition:padding .3s ease,background .25s;
+}
+.links a:hover{padding-left:16px;background:linear-gradient(90deg,rgba(196,64,27,.06),transparent 55%)}
+.links .idx{font-family:"Space Mono",monospace;font-size:12px;color:var(--vermilion);letter-spacing:.08em}
+.links .lbl{font-family:"Fraunces",serif;font-weight:520;font-size:clamp(22px,3.4vw,34px);letter-spacing:-.015em;color:var(--ink)}
+.links .sub{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.04em;color:var(--ink-faint);text-transform:lowercase}
+.links .x{font-family:"Fraunces",serif;font-size:26px;color:var(--ink-faint);transition:transform .3s,color .3s}
+.links a:hover .x{color:var(--vermilion);transform:translate(4px,-4px)}
+@media(max-width:640px){
+  .links a{grid-template-columns:auto 1fr auto;gap:12px}
+  .links .sub{display:none}
+}
+
+/* ==========================================================
+   CONTACT
+   ========================================================== */
+.contact-wrap{max-width:660px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:640px){.form-row{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+.field label{
+  font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-faint);
+}
+.field input,.field textarea{
+  font-family:"Newsreader",Georgia,serif;font-size:18px;color:var(--ink);
+  background:transparent;border:1px solid var(--rule);border-radius:2px;
+  padding:11px 13px;width:100%;
+  transition:border-color .2s,background .2s;
+}
+.field textarea{resize:vertical;min-height:132px;line-height:1.5}
+.field input:focus,.field textarea:focus{
+  outline:none;border-color:var(--vermilion);background:var(--paper-2);
+}
+/* honeypot: off-screen, hidden from humans and screen readers */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.send{
+  font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;
+  background:var(--ink);color:var(--paper);
+  border:1px solid var(--ink);border-radius:2px;
+  padding:13px 28px;cursor:pointer;
+  transition:background .25s,border-color .25s,transform .12s;
+}
+.send:hover{background:var(--vermilion);border-color:var(--vermilion)}
+.send:active{transform:translateY(1px)}
+.send[disabled]{opacity:.45;cursor:default}
+.form-status{
+  margin:16px 0 0;min-height:19px;
+  font-family:"Space Mono",monospace;font-size:12.5px;letter-spacing:.04em;
+}
+.form-status.ok{color:var(--vermilion-deep)}
+.form-status.err{color:var(--vermilion)}
+
+/* ==========================================================
+   FOOTER / COLOPHON
+   ========================================================== */
+footer{
+  border-top:3px double var(--ink);margin-top:min(9vw,72px);
+  padding:34px 0 60px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);
+}
+footer b{color:var(--ink-soft);font-weight:400}
+footer .mid{color:var(--vermilion-deep)}
+
+/* ==========================================================
+   REVEAL ANIMATION
+   ========================================================== */
+@media(prefers-reduced-motion:no-preference){
+  .rise{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .rise.in{opacity:1;transform:none}
+  .masthead>*{opacity:0;animation:mh .9s cubic-bezier(.2,.7,.2,1) forwards}
+  .tape{animation-delay:.05s}
+  .nameplate{animation-delay:.16s}
+  nav.deck{animation-delay:.32s}
+  @keyframes mh{to{opacity:1;transform:none}}
+  .nameplate{transform:translateY(12px)}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ===================== MASTHEAD ===================== -->
+  <header class="masthead">
+    <div class="tape">
+      <span>Brooklyn, New York</span>
+      <span class="r" id="dateline">—</span>
+    </div>
+
+    <h1 class="nameplate">Josh Greenman</h1>
+
+    <nav class="deck">
+      <a href="#bio">Bio</a>
+      <a href="#writing">Writing</a>
+      <a href="#experiments">Experiments</a>
+      <a href="#elsewhere">Elsewhere</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ===================== LEDE / BIO ===================== -->
+  <div class="lede" id="bio">
+    <div class="lede-grid">
+      <p class="opener">I write about New York City: its politics, its policy and how it's governed.</p>
+      <div class="body">
+        <p>I'm managing editor of <em>Vital City</em>, a journal of ideas about New York policy. For sixteen years I edited opinion at the <em>New York Daily News</em>, as op-ed editor and then editorial page editor.</p>
+        <p>Before that, speechwriting and policy in New York and Washington. Years ago I wrote headlines for <em>The Onion</em>. I publish <em>Thoughts About Stuff</em> on Substack. I live in Brooklyn with my wife and our two daughters.</p>
+        <div class="pull">Lately I've also been <b>building small data tools</b> about New York: maps, trackers, explainers.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== WRITING ===================== -->
+  <section id="writing">
+    <div class="sec-head">
+      <span class="sec-num">§ 01</span>
+      <h2 class="sec-title">Writing</h2>
+      <p class="sec-note">Twenty years of columns and editorials, mostly about New York.</p>
+    </div>
+
+    <div class="outlets">
+      <a class="outlet" href="https://www.vitalcitynyc.org/author/greenman-josh/" target="_blank" rel="noopener"><b>Vital City</b><span class="role">managing editor</span></a>
+      <a class="outlet" href="https://www.nydailynews.com/opinion/" target="_blank" rel="noopener"><b>New York Daily News</b><span class="role">opinion, 2006–2022</span></a>
+      <a class="outlet" href="https://nyeditorialboard.substack.com/" target="_blank" rel="noopener"><b>New York Editorial Board</b><span class="role">member</span></a>
+      <a class="outlet" href="https://joshgreenman.substack.com/" target="_blank" rel="noopener"><b>Thoughts About Stuff</b><span class="role">substack</span></a>
+      <span class="outlet"><b>Politico Magazine</b></span>
+      <span class="outlet"><b>The New York Sun</b></span>
+      <span class="outlet"><b>The Onion</b><span class="role">early &amp; anonymous</span></span>
+    </div>
+
+    <div class="toc">
+      <a href="https://www.vitalcitynyc.org/articles/zohran-mamdani-in-the-balance" target="_blank" rel="noopener">
+        <span class="t">Zohran Mamdani in the balance<span class="arw">↗</span></span>
+        <span class="m"><b>Vital City</b> · Aug 2025</span>
+      </a>
+      <a href="https://www.vitalcitynyc.org/articles/the-eric-adams-indictment-a-tragedy-in-two-dimensions" target="_blank" rel="noopener">
+        <span class="t">The Eric Adams indictment: a tragedy in two dimensions<span class="arw">↗</span></span>
+        <span class="m"><b>Vital City</b> · Sep 2024</span>
+      </a>
+      <a href="https://www.vitalcitynyc.org/articles/tom-robbins-and-the-slow-death-of-common-civic-culture" target="_blank" rel="noopener">
+        <span class="t">Tom Robbins and the slow death of common civic culture<span class="arw">↗</span></span>
+        <span class="m"><b>Vital City</b> · May 2025</span>
+      </a>
+      <a href="https://www.vitalcitynyc.org/articles/congestion-pricing-an-explainer" target="_blank" rel="noopener">
+        <span class="t">Congestion pricing: an explainer<span class="arw">↗</span></span>
+        <span class="m"><b>Vital City</b> · May 2024</span>
+      </a>
+      <a href="https://joshgreenman.substack.com/p/adams-end" target="_blank" rel="noopener">
+        <span class="t">Adams' end<span class="arw">↗</span></span>
+        <span class="m"><b>Substack</b> · Thoughts About Stuff</span>
+      </a>
+      <a href="https://joshgreenman.substack.com/p/psst-have-you-heard-about-ai" target="_blank" rel="noopener">
+        <span class="t">Psst, have you heard about AI?<span class="arw">↗</span></span>
+        <span class="m"><b>Substack</b> · Thoughts About Stuff</span>
+      </a>
+    </div>
+
+    <p class="archive">Full archive at <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">authory.com/JoshGreenman</a>. New work goes up on <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">the Substack</a>.</p>
+  </section>
+
+  <!-- ===================== EXPERIMENTS ===================== -->
+  <section id="experiments">
+    <div class="sec-head">
+      <span class="sec-num">§ 02</span>
+      <h2 class="sec-title">Experiments</h2>
+      <p class="sec-note">Maps and data tools about New York, built with AI. A dozen of the seventy-odd I've made.</p>
+    </div>
+
+    <div class="grid" id="grid">
+      <a class="card" href="https://joshgreenman1973.github.io/nyc-history-timeline/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">History</span><span class="no">01</span></div>
+        <h3>New York, in Time</h3>
+        <p>An interactive history of New York, from the Lenape to the present.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/nyc-everything-map/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Maps</span><span class="no">02</span></div>
+        <h3>The Everything Map</h3>
+        <p>Click any spot in the city and get a full report on it: neighborhood, districts, representatives and more.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/nyc-grid-pulse/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Energy</span><span class="no">03</span></div>
+        <h3>NYC Grid Pulse</h3>
+        <p>New York's electricity in real time: demand, supply and price, from the grid operator.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/nyc-harbor-traffic/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Transit</span><span class="no">04</span></div>
+        <h3>Harbor Motion</h3>
+        <p>A live map of the ships, ferries and tugs moving through New York Harbor.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/nyc-precinct-day/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Crime</span><span class="no">05</span></div>
+        <h3>A day on the police radio</h3>
+        <p>Pick a precinct and a day and see what the 911 system logged, hour by hour.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/nyc-cemeteries/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Maps</span><span class="no">06</span></div>
+        <h3>The permanent residents</h3>
+        <p>A map of 594 cemeteries and burial grounds in the five boroughs, including the ones that no longer exist.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/foreign-born-map/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Population</span><span class="no">07</span></div>
+        <h3>Foreign-born America</h3>
+        <p>Where America's immigrants live, county by county, by country of origin.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://nyc-building-age.vercel.app/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Housing</span><span class="no">08</span></div>
+        <h3>Every Building</h3>
+        <p>Every building in New York, mapped by age, height and type.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/graveyard-of-ideas/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Politics</span><span class="no">09</span></div>
+        <h3>Graveyard of ideas</h3>
+        <p>A century of mayoral campaign promises from the candidates who lost.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://compstat-ledger.vercel.app/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Crime</span><span class="no">10</span></div>
+        <h3>CompStat in context</h3>
+        <p>NYPD CompStat crime data, made easier to read and compare.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://nycnewsengine.com/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Tools</span><span class="no">11</span></div>
+        <h3>NYC News Engine</h3>
+        <p>Scans local news sources to catch New York stories as they break.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card" href="https://joshgreenman1973.github.io/nyc-open-data-explorer/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">Data</span><span class="no">12</span></div>
+        <h3>Open Data explorer</h3>
+        <p>3,000-plus city datasets, mapped and searchable in plain English.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+    </div>
+
+    <p class="more">All of them are in the <a href="https://joshgreenman1973.github.io/experiments/projects.html" target="_blank" rel="noopener">experiments catalogue →</a></p>
+  </section>
+
+  <!-- ===================== ELSEWHERE ===================== -->
+  <section id="elsewhere">
+    <div class="sec-head">
+      <span class="sec-num">§ 03</span>
+      <h2 class="sec-title">Elsewhere</h2>
+      <p class="sec-note">Where to find me.</p>
+    </div>
+
+    <div class="links">
+      <a href="https://www.vitalcitynyc.org/" target="_blank" rel="noopener">
+        <span class="idx">A</span><span class="lbl">Vital City</span><span class="sub">vitalcitynyc.org</span><span class="x">↗</span>
+      </a>
+      <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">
+        <span class="idx">B</span><span class="lbl">Substack</span><span class="sub">joshgreenman.substack.com</span><span class="x">↗</span>
+      </a>
+      <a href="https://nyeditorialboard.substack.com/" target="_blank" rel="noopener">
+        <span class="idx">C</span><span class="lbl">New York Editorial Board</span><span class="sub">interviews with the city's leaders</span><span class="x">↗</span>
+      </a>
+      <a href="https://www.linkedin.com/in/josh-greenman-9a381082/" target="_blank" rel="noopener">
+        <span class="idx">D</span><span class="lbl">LinkedIn</span><span class="sub">in/josh-greenman</span><span class="x">↗</span>
+      </a>
+      <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">
+        <span class="idx">E</span><span class="lbl">Full portfolio</span><span class="sub">authory.com/JoshGreenman</span><span class="x">↗</span>
+      </a>
+      <a href="https://github.com/joshgreenman1973" target="_blank" rel="noopener">
+        <span class="idx">F</span><span class="lbl">GitHub</span><span class="sub">source for the tools</span><span class="x">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <div class="sec-head">
+      <span class="sec-num">§ 04</span>
+      <h2 class="sec-title">Contact</h2>
+      <p class="sec-note">Questions, tips or corrections.</p>
+    </div>
+
+    <div class="contact-wrap">
+      <form id="contact-form" novalidate>
+        <input type="hidden" name="access_key" value="37f18871-1633-4fbd-9d69-f9db28424eef" />
+        <input type="hidden" name="subject" value="New message from joshgreenman.com" />
+        <input type="hidden" name="from_name" value="joshgreenman.com" />
+
+        <!-- Spam traps. Humans never see these; bots fill them in. -->
+        <div class="hp" aria-hidden="true">
+          <label for="c-company">Leave this empty</label>
+          <input id="c-company" type="text" name="company" tabindex="-1" autocomplete="off" />
+          <input type="checkbox" name="botcheck" tabindex="-1" />
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="c-name">Name</label>
+            <input id="c-name" type="text" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="c-email">Email</label>
+            <input id="c-email" type="email" name="email" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="c-message">Message</label>
+          <textarea id="c-message" name="message" required></textarea>
+        </div>
+
+        <button class="send" type="submit">Send</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <span>© <span id="yr">2026</span> Josh Greenman</span>
+    <span class="mid">Set in Fraunces, Newsreader &amp; Space Mono</span>
+    <span>Written &amp; built in <b>Brooklyn, N.Y.</b></span>
+  </footer>
+
+</div>
+
+<script>
+  // dateline — long-form, editorial
+  (function(){
+    var d = new Date();
+    var months = ["January","February","March","April","May","June","July",
+                  "August","September","October","November","December"];
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var el = document.getElementById('dateline');
+    if(el) el.textContent = days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+    var yr = document.getElementById('yr');
+    if(yr) yr.textContent = d.getFullYear();
+  })();
+
+  // scroll reveals
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('section, .lede');
+    if(reduce || !('IntersectionObserver' in window)){
+      targets.forEach(function(t){t.classList.add('in')});
+      return;
+    }
+    targets.forEach(function(t){t.classList.add('rise')});
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:"0px 0px -8% 0px"});
+    targets.forEach(function(t){io.observe(t)});
+  })();
+
+  // contact form: honeypot + time trap, relayed via Web3Forms
+  (function(){
+    var form = document.getElementById('contact-form');
+    if(!form) return;
+    var el = form.elements;                 // note: form.name would hit the form's own property
+    var status = document.getElementById('form-status');
+    var btn = form.querySelector('.send');
+    var loadedAt = Date.now();
+
+    function say(msg, kind){
+      status.className = 'form-status' + (kind ? ' ' + kind : '');
+      status.textContent = msg;
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      say('');
+
+      // 1. Honeypot. Only a bot fills a field it cannot see.
+      if(el['company'].value !== '' || el['botcheck'].checked) return;
+
+      // 2. Time trap. A human cannot read the page and submit in under 3 seconds.
+      if(Date.now() - loadedAt < 3000){
+        say('Give it a moment, then send.', 'err');
+        return;
+      }
+
+      // 3. Validation.
+      var name = el['name'].value.trim(),
+          email = el['email'].value.trim(),
+          message = el['message'].value.trim();
+      if(!name || !email || !message){ say('Please fill in every field.', 'err'); return; }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ say('That email address looks off.', 'err'); return; }
+
+      if(el['access_key'].value.indexOf('REPLACE_WITH') === 0){
+        say('Form is not connected yet — add the Web3Forms key.', 'err');
+        return;
+      }
+
+      btn.disabled = true; btn.textContent = 'Sending';
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json', 'Accept':'application/json'},
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(j.success){ form.reset(); say('Thanks. Your message is on its way.', 'ok'); }
+        else { say('Something went wrong. Please try again.', 'err'); }
+      })
+      .catch(function(){ say('Something went wrong. Please try again.', 'err'); })
+      .then(function(){ btn.disabled = false; btn.textContent = 'Send'; });
+    });
+  })();
+
+  // stagger cards in on first reveal
+  (function(){
+    var grid = document.getElementById('grid');
+    if(!grid) return;
+    var cards = grid.querySelectorAll('.card');
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          cards.forEach(function(c,i){
+            c.style.opacity=0; c.style.transform='translateY(16px)';
+            c.style.transition='opacity .6s ease '+(i*55)+'ms, transform .6s ease '+(i*55)+'ms';
+            requestAnimationFrame(function(){ requestAnimationFrame(function(){
+              c.style.opacity=1; c.style.transform='none';
+            });});
+          });
+          io.disconnect();
+        }
+      });
+    }, {threshold:.08});
+    io.observe(grid);
+  })();
+</script>
+</body>
+</html>
