@@ -613,21 +613,71 @@ footer .mid{color:var(--vermilion-deep)}
     if(yr) yr.textContent = d.getFullYear();
   })();
 
-  // scroll reveals
+  // Scroll reveals.
+  // Driven by measured geometry rather than IntersectionObserver: IO can fail to
+  // deliver an initial callback for elements already on screen at load, which would
+  // strand the whole page at opacity 0. Geometry always resolves, and a timed
+  // backstop guarantees nothing can stay hidden.
   (function(){
+    var targets = [].slice.call(document.querySelectorAll('section, .lede'));
+    if(!targets.length) return;
+
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var targets = document.querySelectorAll('section, .lede');
-    if(reduce || !('IntersectionObserver' in window)){
-      targets.forEach(function(t){t.classList.add('in')});
-      return;
+    if(reduce){ targets.forEach(function(t){ t.classList.add('in'); }); return; }
+
+    targets.forEach(function(t){ t.classList.add('rise'); });
+
+    var pending = targets.slice();
+    function reveal(t){
+      t.classList.add('in');
+      if(t.id === 'experiments') stagger(t);
     }
-    targets.forEach(function(t){t.classList.add('rise')});
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    function check(){
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      pending = pending.filter(function(t){
+        var r = t.getBoundingClientRect();
+        if(r.top < vh * 0.94 && r.bottom > 0){ reveal(t); return false; }
+        return true;
       });
-    }, {threshold:.12, rootMargin:"0px 0px -8% 0px"});
-    targets.forEach(function(t){io.observe(t)});
+      if(!pending.length){
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+      }
+    }
+    var ticking = false;
+    function onScroll(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){ ticking = false; check(); });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll);
+
+    check();                                  // whatever is already on screen
+    setTimeout(check, 250);                   // again once fonts settle the layout
+    window.addEventListener('load', check);
+
+    // Backstop: content must never remain invisible.
+    setTimeout(function(){ targets.forEach(function(t){ t.classList.add('in'); }); }, 8000);
+
+    // Stagger the experiment cards in as their section arrives.
+    function stagger(section){
+      var cards = section.querySelectorAll('.card');
+      for(var i = 0; i < cards.length; i++){
+        var c = cards[i];
+        c.style.opacity = 0;
+        c.style.transform = 'translateY(16px)';
+        c.style.transition = 'opacity .6s ease ' + (i * 55) + 'ms, transform .6s ease ' + (i * 55) + 'ms';
+      }
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          for(var i = 0; i < cards.length; i++){
+            cards[i].style.opacity = 1;
+            cards[i].style.transform = 'none';
+          }
+        });
+      });
+    }
   })();
 
   // contact form: honeypot + time trap, relayed via Web3Forms
@@ -685,28 +735,6 @@ footer .mid{color:var(--vermilion-deep)}
     });
   })();
 
-  // stagger cards in on first reveal
-  (function(){
-    var grid = document.getElementById('grid');
-    if(!grid) return;
-    var cards = grid.querySelectorAll('.card');
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          cards.forEach(function(c,i){
-            c.style.opacity=0; c.style.transform='translateY(16px)';
-            c.style.transition='opacity .6s ease '+(i*55)+'ms, transform .6s ease '+(i*55)+'ms';
-            requestAnimationFrame(function(){ requestAnimationFrame(function(){
-              c.style.opacity=1; c.style.transform='none';
-            });});
-          });
-          io.disconnect();
-        }
-      });
-    }, {threshold:.08});
-    io.observe(grid);
-  })();
 </script>
 </body>
 </html>
