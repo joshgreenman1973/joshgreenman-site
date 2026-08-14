@@ -32,6 +32,7 @@ import urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__))
 INDEX = os.path.join(HERE, "index.html")
 OVERRIDES = os.path.join(HERE, "data", "overrides.json")
+CACHE = os.path.join(HERE, "data", "substack-cache.json")
 
 SUBSTACK = "https://joshgreenman.substack.com/api/v1/archive?sort=new&limit=30"
 GHOST_KEY = "dd8e178e9ddfc883537e71dd07"
@@ -177,13 +178,49 @@ def short_date(iso):
 # writing
 # --------------------------------------------------------------------------
 
-def collect_writing(cfg):
+def substack_posts():
+    """
+    Substack answers this machine but blocks GitHub's runners outright: every
+    endpoint and user agent gets a 403 from an Azure address. So the live fetch
+    is best-effort, and each success is cached to data/substack-cache.json for
+    the cloud job to read. Only a live fetch refreshes that file, which is why
+    the same script also runs from Josh's Mac.
+    """
+    live = None
     try:
-        sub = get(SUBSTACK)
+        got = get(SUBSTACK)
+        if isinstance(got, list) and got:
+            live = got
+        else:
+            sys.stderr.write("  Substack returned an empty archive\n")
     except (urllib.error.URLError, ValueError) as e:
-        die("Substack archive unreachable: %s" % e)
-    if not isinstance(sub, list) or not sub:
-        die("Substack archive returned no posts.")
+        sys.stderr.write("  Substack unreachable from here (%s)\n" % e)
+
+    if live is not None:
+        keep = [{k: p.get(k) for k in
+                 ("title", "subtitle", "description", "canonical_url",
+                  "post_date", "type")}
+                for p in live]
+        with open(CACHE, "w", encoding="utf-8") as f:
+            json.dump({"source": SUBSTACK, "newest": keep[0]["post_date"][:10],
+                       "posts": keep}, f, indent=1, ensure_ascii=False)
+            f.write("\n")
+        print("substack: %d posts live, cache refreshed" % len(keep))
+        return live
+
+    if not os.path.exists(CACHE):
+        die("Substack unreachable and no data/substack-cache.json to fall back on.")
+    with open(CACHE, encoding="utf-8") as f:
+        cached = json.load(f)
+    posts = cached.get("posts") or []
+    if not posts:
+        die("data/substack-cache.json holds no posts.")
+    print("substack: falling back to cache, newest %s" % cached.get("newest"))
+    return posts
+
+
+def collect_writing(cfg):
+    sub = substack_posts()
 
     try:
         vc = get(GHOST).get("posts", [])
