@@ -76,11 +76,19 @@ def die(msg):
 # text
 # --------------------------------------------------------------------------
 
-def straighten(s):
-    """Curly quotes and dashes out, per the house style of the page."""
-    return (s.replace("’", "'").replace("‘", "'")
-             .replace("“", '"').replace("”", '"')
-             .replace("…", "...").replace(" ", " ")).strip()
+def smarten(s):
+    """
+    Curly quotes, per the house style of the page. The sources mostly hand
+    these over already curled; this catches the ones that arrive straight.
+    """
+    s = s.replace("\u2026", "...").replace("\xa0", " ").strip()
+    # doubles: an opening quote after the start, whitespace or a bracket
+    s = re.sub(r'(^|[\s([{])"', "\\1\u201c", s)
+    s = s.replace('"', "\u201d")
+    # singles: an apostrophe after a letter or digit, an opening quote otherwise
+    s = re.sub(r"(?<=[A-Za-z0-9])'", "\u2019", s)
+    s = re.sub(r"(^|[\s([{])'", "\\1\u2018", s)
+    return s.replace("'", "\u2019")
 
 
 def undash(s):
@@ -108,7 +116,7 @@ def sentence_case(title, cfg):
     case, protecting proper nouns. Anything it gets wrong can be pinned by
     hand in data/overrides.json rather than by editing this function.
     """
-    title = straighten(title)
+    title = smarten(title)
     if title in cfg["title_overrides"]:
         return cfg["title_overrides"][title]
 
@@ -123,7 +131,11 @@ def sentence_case(title, cfg):
 
         title = pattern.sub(stash, title)
 
-    names = {n.lower() for n in cfg["names"]}
+    # keyed on a straight-apostrophe form so "I’ve" still matches "I've"
+    def flat(w):
+        return w.replace("’", "'").replace("‘", "'").lower()
+
+    names = {flat(n): n for n in cfg["names"]}
     acronyms = {a.upper() for a in cfg["acronyms"]}
 
     out = []
@@ -137,13 +149,13 @@ def sentence_case(title, cfg):
             start_of_sentence = False
             continue
 
-        core = tok.strip("(){}[]\"'.,;:!?")
-        bare = re.sub(r"'s$", "", core)
+        core = tok.strip("(){}[]\"'“”‘’.,;:!?")
+        bare = re.sub(r"['’]s$", "", core)
 
         if core.upper() in acronyms:
             word = tok.replace(core, core.upper())
-        elif bare.lower() in names:
-            keep = next(n for n in cfg["names"] if n.lower() == bare.lower())
+        elif flat(bare) in names:
+            keep = names[flat(bare)]
             word = tok.replace(core, keep + core[len(bare):])
         elif start_of_sentence:
             word = tok[:1].upper() + tok[1:] if tok[:1].isalpha() else tok
@@ -157,7 +169,7 @@ def sentence_case(title, cfg):
             word = tok.lower()
 
         out.append(word)
-        start_of_sentence = bool(re.search(r"[.?!:]\"?$", tok))
+        start_of_sentence = bool(re.search(r"[.?!:][\"”’]?$", tok))
 
     title = "".join(out)
     for i, phrase in enumerate(slots):
@@ -233,12 +245,12 @@ def collect_writing(cfg):
     items = []
 
     for p in vc:
-        t = straighten(p.get("title") or "")
+        t = smarten(p.get("title") or "")
         if not t or any(r.search(t) for r in skip):
             continue
         items.append({
             "title": t,
-            "dek": straighten(p.get("custom_excerpt") or ""),
+            "dek": smarten(p.get("custom_excerpt") or ""),
             "url": p.get("url") or "",
             "date": (p.get("published_at") or "")[:10],
             "outlet": "Vital City",
@@ -247,12 +259,12 @@ def collect_writing(cfg):
     for p in sub:
         if p.get("type") not in (None, "newsletter"):
             continue
-        t = straighten(p.get("title") or "")
+        t = smarten(p.get("title") or "")
         if not t or any(r.search(t) for r in skip):
             continue
         items.append({
             "title": t,
-            "dek": straighten(p.get("subtitle") or p.get("description") or ""),
+            "dek": smarten(p.get("subtitle") or p.get("description") or ""),
             "url": p.get("canonical_url") or "",
             "date": (p.get("post_date") or "")[:10],
             "outlet": "Substack",
@@ -317,7 +329,7 @@ def render_writing(items):
 
 def split_title(t):
     """'Orrery - the music of the spheres' -> 'Orrery'."""
-    t = straighten(t)
+    t = smarten(t)
     for sep in (" — ", " – ", " - ", ": "):
         if sep in t:
             head = t.split(sep)[0].strip()
@@ -338,7 +350,7 @@ def page_meta(url):
     if not t or not d:
         return None
     title = split_title(html.unescape(re.sub(r"\s+", " ", t.group(1))))
-    dek = undash(straighten(html.unescape(re.sub(r"\s+", " ", d.group(3)))))
+    dek = undash(smarten(html.unescape(re.sub(r"\s+", " ", d.group(3)))))
     if not title or not (50 <= len(dek) <= 240) or not dek.endswith((".", "?")):
         return None
     return {"title": title, "dek": dek}
