@@ -151,6 +151,14 @@ nav.deck a:hover::after{width:100%}
 }
 .pull b{color:var(--vermilion-deep);font-weight:600}
 
+/* inline links in running text: a hairline that lights up */
+.lede a{
+  color:var(--ink);
+  border-bottom:1px solid var(--rule);
+  transition:color .22s,border-color .22s;
+}
+.lede a:hover{color:var(--vermilion-deep);border-color:var(--vermilion)}
+
 /* ==========================================================
    SECTION HEADERS
    ========================================================== */
@@ -191,6 +199,33 @@ section + section{border-top:1px solid var(--rule)}
 .outlet .role{color:var(--vermilion-deep)}
 a.outlet:hover{border-color:var(--ink);color:var(--ink);background:var(--paper-2)}
 
+/* the lead: newest piece, played bigger than the list below it */
+.lead{
+  display:block;border-top:3px double var(--ink);border-bottom:1px solid var(--rule);
+  padding:22px 4px 26px;margin-bottom:34px;
+  transition:padding .3s ease,background .25s;
+}
+.lead:hover{padding-left:16px;background:linear-gradient(90deg,rgba(196,64,27,.06),transparent 60%)}
+.lead .kicker{display:block;margin-bottom:12px}
+.lead-t{
+  display:block;
+  font-family:"Fraunces",serif;font-weight:520;
+  font-size:clamp(27px,4vw,42px);line-height:1.1;letter-spacing:-.018em;color:var(--ink);
+}
+.lead-t .arw{color:var(--vermilion);opacity:0;margin-left:.32em;
+  transition:opacity .25s,transform .25s;display:inline-block}
+.lead:hover .lead-t .arw{opacity:1;transform:translateX(3px)}
+.lead-dek{
+  display:block;margin-top:12px;max-width:52ch;
+  font-size:clamp(17px,2vw,20px);line-height:1.45;color:var(--ink-soft);
+}
+.lead-m{
+  display:block;margin-top:16px;
+  font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-faint);
+}
+.lead-m b{color:var(--vermilion-deep);font-weight:400}
+
 .toc{border-top:1px solid var(--ink)}
 .toc a{
   display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:14px;
@@ -224,6 +259,22 @@ a.outlet:hover{border-color:var(--ink);color:var(--ink);background:var(--paper-2
 .grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));
   gap:1px;background:var(--rule);border:1px solid var(--rule);
+}
+/* the two newest, above the standing selection */
+.grid-new{
+  grid-template-columns:repeat(auto-fit,minmax(288px,1fr));
+  border-top:3px double var(--ink);
+  margin-bottom:34px;
+}
+.card-new{background:var(--paper-2);min-height:186px}
+.card-new::before{width:100%;background:var(--vermilion);opacity:.55;transition:opacity .35s}
+.card-new:hover::before{opacity:1}
+.card-new:hover{background:var(--paper)}
+.card-new .no{color:var(--ink-soft)}
+.selected-label{
+  margin:0 0 18px;
+  font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-faint);
 }
 .card{
   background:var(--paper);
@@ -376,8 +427,8 @@ footer .mid{color:var(--vermilion-deep)}
     <div class="lede-grid">
       <p class="opener">I write about New York City: its politics, its policy and how it's governed.</p>
       <div class="body">
-        <p>I'm managing editor of Vital City, a journal of ideas about New York policy. For sixteen years I edited opinion at the New York Daily News, as op-ed editor and then editorial page editor.</p>
-        <p>Before that, speechwriting and policy in New York and Washington. Years ago I wrote headlines for The Onion. I publish Thoughts About Stuff on Substack. I live in Brooklyn with my wife and our two daughters.</p>
+        <p>I'm managing editor of <a href="https://www.vitalcitynyc.org/" target="_blank" rel="noopener">Vital City</a>, a journal of ideas about New York policy. For sixteen years I edited opinion at the <a href="https://www.nydailynews.com/opinion/" target="_blank" rel="noopener">New York Daily News</a>, as op-ed editor and then editorial page editor.</p>
+        <p>Before that, speechwriting and policy in New York and Washington. Years ago I wrote headlines for <a href="https://theonion.com/" target="_blank" rel="noopener">The Onion</a>. I publish <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">Thoughts About Stuff</a> on Substack. I live in Brooklyn with my wife and our two daughters.</p>
         <div class="pull">Lately I've also been <b>building small data tools</b> about New York: maps, trackers, explainers.</div>
       </div>
     </div>
@@ -401,6 +452,13 @@ footer .mid{color:var(--vermilion-deep)}
       <span class="outlet"><b>The Onion</b><span class="role">early &amp; anonymous</span></span>
     </div>
 
+    <!-- AUTO:WRITING START -->
+    <a class="lead" href="https://joshgreenman.substack.com/p/how-mamdanis-doing-one-mans-assessment" target="_blank" rel="noopener">
+      <span class="kicker">Latest</span>
+      <span class="lead-t">How Mamdani&#x27;s doing: One man&#x27;s assessment<span class="arw">↗</span></span>
+      <span class="lead-dek">Getting a read on his mayoralty 220 days in</span>
+      <span class="lead-m"><b>Substack</b> · Aug 8, 2026</span>
+    </a>
     <div class="toc">
       <a href="https://www.vitalcitynyc.org/darializa-avila-chevalier-claire-valdez-brad-lander-mamdani/" target="_blank" rel="noopener">
         <span class="t">Darializa Avila Chevalier, Claire Valdez, Brad Lander, Zohran Mamdani and New York<span class="arw">↗</span></span>
@@ -415,30 +473,27 @@ footer .mid{color:var(--vermilion-deep)}
         <span class="m"><b>Substack</b> · Mar 2026</span>
       </a>
       <a href="https://joshgreenman.substack.com/p/walking-new-york-citys-safe-and-not" target="_blank" rel="noopener">
-        <span class="t">Walking New York City's safe (and not so safe) streets, in numbers<span class="arw">↗</span></span>
+        <span class="t">Walking New York City&#x27;s safe (and not so safe) streets, in numbers<span class="arw">↗</span></span>
         <span class="m"><b>Substack</b> · Mar 2026</span>
+      </a>
+      <a href="https://joshgreenman.substack.com/p/when-candidates-lose-and-ideas-live" target="_blank" rel="noopener">
+        <span class="t">When candidates lose and ideas live on<span class="arw">↗</span></span>
+        <span class="m"><b>Substack</b> · Feb 2026</span>
       </a>
       <a href="https://joshgreenman.substack.com/p/beware-radical-urbanism" target="_blank" rel="noopener">
         <span class="t">Beware radical urbanism<span class="arw">↗</span></span>
         <span class="m"><b>Substack</b> · Feb 2026</span>
       </a>
-      <a href="https://joshgreenman.substack.com/p/make-buses-free-its-a-pragmatic-political" target="_blank" rel="noopener">
-        <span class="t">Make buses free? It's a pragmatic, political and fiscal question<span class="arw">↗</span></span>
+      <a href="https://joshgreenman.substack.com/p/raise-taxes-or-the-girl-gets-it-mamdanis" target="_blank" rel="noopener">
+        <span class="t">Raise taxes or the girl gets it: Mamdani&#x27;s forced, false budget choice<span class="arw">↗</span></span>
         <span class="m"><b>Substack</b> · Feb 2026</span>
       </a>
-      <a href="https://joshgreenman.substack.com/p/how-far-left-is-the-mamdani-administration" target="_blank" rel="noopener">
-        <span class="t">How far left is the Mamdani administration so far?<span class="arw">↗</span></span>
-        <span class="m"><b>Substack</b> · Jan 2026</span>
-      </a>
-      <a href="https://joshgreenman.substack.com/p/who-made-mamdani-mayor" target="_blank" rel="noopener">
-        <span class="t">Who made Mamdani mayor?<span class="arw">↗</span></span>
-        <span class="m"><b>Substack</b> · Nov 2025</span>
-      </a>
-      <a href="https://www.vitalcitynyc.org/zohran-mamdani-in-the-balance/" target="_blank" rel="noopener">
-        <span class="t">Zohran Mamdani in the balance<span class="arw">↗</span></span>
-        <span class="m"><b>Vital City</b> · Aug 2025</span>
+      <a href="https://joshgreenman.substack.com/p/make-buses-free-its-a-pragmatic-political" target="_blank" rel="noopener">
+        <span class="t">Make buses free? It&#x27;s a pragmatic, political and fiscal question<span class="arw">↗</span></span>
+        <span class="m"><b>Substack</b> · Feb 2026</span>
       </a>
     </div>
+    <!-- AUTO:WRITING END -->
 
     <p class="archive">Full archive at <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">authory.com/JoshGreenman</a>. New work goes up on <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">the Substack</a>.</p>
   </section>
@@ -448,8 +503,27 @@ footer .mid{color:var(--vermilion-deep)}
     <div class="sec-head">
       <span class="sec-num">§ 02</span>
       <h2 class="sec-title">Experiments</h2>
-      <p class="sec-note">Maps and data tools about New York, built with AI. A dozen of the seventy-odd I've made.</p>
+      <p class="sec-note">Maps and data tools about New York, built with AI. The two newest, then a dozen of the hundred-odd I've made.</p>
     </div>
+
+    <!-- AUTO:NEW-EXPERIMENTS START -->
+    <div class="grid grid-new">
+      <a class="card card-new" href="https://joshgreenman1973.github.io/orrery/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">New</span><span class="no">Aug 10, 2026</span></div>
+        <h3>Orrery</h3>
+        <p>An instrument with no grid: planets orbit, and every crossing of the strike ray is a note. Rhythm becomes geometry: ratios, ellipses and phase you can grab.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+      <a class="card card-new" href="https://joshgreenman1973.github.io/nyc-budget-per-capita/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">New</span><span class="no">Aug 9, 2026</span></div>
+        <h3>The New York City ledger</h3>
+        <p>Twenty-six years of audited New York City spending and revenue, by category, with toggles for population and inflation. Built from the Comptroller&#x27;s annual financial reports.</p>
+        <span class="go">Open<span class="x">↗</span></span>
+      </a>
+    </div>
+    <!-- AUTO:NEW-EXPERIMENTS END -->
+
+    <p class="selected-label">Selected</p>
 
     <div class="grid" id="grid">
       <a class="card" href="https://joshgreenman1973.github.io/nyc-history-timeline/" target="_blank" rel="noopener">

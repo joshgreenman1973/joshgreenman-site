@@ -1,0 +1,51 @@
+{
+  "_note": "Hand controls for build.py. Edit this file, never the generated HTML. Anything the automatic pass gets wrong can be pinned here.",
+
+  "phrases": [
+    "New York City", "New York State", "New York", "Daily News",
+    "Vital City", "Staten Island", "de Blasio", "City Hall", "City Council",
+    "Wall Street", "Central Park", "Rikers Island", "Second Avenue",
+    "the Bronx", "Hudson Valley", "Long Island", "Supreme Court",
+    "Los Angeles", "San Francisco", "Washington, D.C."
+  ],
+
+  "names": [
+    "Mamdani", "Zohran", "Cuomo", "Andrew", "Adams", "Eric", "Lander", "Brad",
+    "Valdez", "Claire", "Darializa", "Avila", "Chevalier", "Hochul", "Kathy",
+    "Bloomberg", "Giuliani", "Koch", "Dinkins", "Lindsay", "Trump", "Sliwa",
+    "Tisch", "Robbins", "Jacobs", "Moses", "Paris", "London", "Tokyo",
+    "Brooklyn", "Queens", "Manhattan", "Bronx", "Harlem", "Albany",
+    "Washington", "America", "American", "Americans", "Congress", "Democrat",
+    "Democrats", "Democratic", "Republican", "Republicans", "Christmas",
+    "January", "February", "March", "April", "May", "June", "July", "August",
+    "September", "October", "November", "December", "Onion", "Substack",
+    "Politico", "Trumpism", "Gotham", "Sunday", "Monday", "Tuesday",
+    "Wednesday", "Thursday", "Friday", "Saturday", "I", "I'm", "I've"
+  ],
+
+  "acronyms": [
+    "AI", "NYPD", "MTA", "NYCHA", "DOE", "FDNY", "TLC", "DOT", "DSA", "NYC",
+    "CUNY", "SUNY", "HPD", "DOB", "ACS", "OMB", "IBO", "SNAP", "MAGA", "GOP"
+  ],
+
+  "skip_titles": ["^editors?['’]?s?\\s+note"],
+
+  "title_overrides": {},
+  "dek_overrides": {},
+
+  "experiment_deny": [
+    "404",
+    "bandbox",
+    "doppelgang",
+    "coming-in-hot",
+    "sasha-dollhouse",
+    "sasha-dollhouse-ios",
+    "singing-stairs",
+    "singing-stairs-2",
+    "experiments",
+    "josh-greenman-site"
+  ],
+
+  "experiment_titles": {},
+  "experiment_deks": {}
+}
