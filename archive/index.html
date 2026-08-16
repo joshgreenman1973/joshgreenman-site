@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Archive · Josh Greenman</title>
+<meta name="description" content="Josh Greenman’s earlier writing, by publication." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+<style>
+:root{--paper:#f4efe4;--paper-2:#efe9db;--ink:#181410;--ink-soft:#4a4238;--ink-faint:#8b8172;--rule:#cabfa8;--rule-soft:#ddd4c0;--vermilion:#c4401b;--vermilion-deep:#a5330f;--maxw:1140px}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{margin:0;font-family:"Newsreader",Georgia,serif;font-size:18px;line-height:1.55;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+.top{display:flex;justify-content:space-between;align-items:baseline;padding:22px 0 14px;border-bottom:1px solid var(--ink);font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.top a{border-bottom:1px solid transparent} .top a:hover{border-color:var(--vermilion);color:var(--ink)}
+.top .name{font-family:"Fraunces",serif;font-size:20px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:560}
+.head{padding:min(7vw,60px) 0 30px}
+.kick{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--vermilion)}
+h1{font-family:"Fraunces",serif;font-weight:560;font-size:clamp(32px,5.5vw,56px);line-height:1;letter-spacing:-.02em;margin:10px 0 16px}
+.note{max-width:60ch;color:var(--ink-soft);font-size:17px;margin:0}
+.count{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);margin-top:12px}
+.tools{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:26px 0 8px}
+.tools input{font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--rule);background:#fff;color:var(--ink);border-radius:2px;min-width:260px}
+.tools input:focus{outline:2px solid var(--vermilion);outline-offset:1px;border-color:var(--ink)}
+.yr{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(26px,3.6vw,40px);letter-spacing:-.02em;margin:44px 0 6px;display:flex;align-items:baseline;gap:12px}
+.yr small{font-family:"Space Mono",monospace;font-size:11px;font-weight:400;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase}
+.toc{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:1fr auto;gap:6px 18px;padding:15px 4px 16px;border-bottom:1px solid var(--rule-soft);transition:padding .3s ease,background .25s}
+.row:hover{padding-left:14px;background:linear-gradient(90deg,rgba(196,64,27,.06),transparent 60%)}
+.row .t{font-family:"Fraunces",serif;font-weight:480;font-size:clamp(18px,2.2vw,23px);line-height:1.22;letter-spacing:-.01em;color:var(--ink)}
+.row .t a:hover{color:var(--vermilion-deep)}
+.row .t .arw{color:var(--vermilion);opacity:0;margin-left:.35em;display:inline-block;transition:opacity .25s,transform .25s}
+.row:hover .t .arw{opacity:1;transform:translateX(3px)}
+.row .m{font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);text-align:right;white-space:nowrap;padding-top:6px}
+.row .d{grid-column:1/-1;color:var(--ink-soft);font-size:16px;line-height:1.45;max-width:72ch}
+.row .l{grid-column:1/-1;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-faint)}
+.row .l a{border-bottom:1px solid var(--rule)} .row .l a:hover{color:var(--ink);border-color:var(--vermilion)}
+.row .l a+a{margin-left:14px}
+.hidden{display:none}
+.empty{padding:40px 0;color:var(--ink-faint);font-family:"Space Mono",monospace;font-size:13px}
+.list{margin-top:8px}
+.card{display:block;border-top:1px solid var(--ink);padding:22px 4px 24px;transition:padding .3s,background .25s}
+.card:last-child{border-bottom:1px solid var(--ink)}
+.card:hover{padding-left:14px;background:linear-gradient(90deg,rgba(196,64,27,.06),transparent 60%)}
+.card .t{font-family:"Fraunces",serif;font-weight:520;font-size:clamp(24px,3.4vw,36px);line-height:1.1;letter-spacing:-.018em}
+.card .t .arw{color:var(--vermilion);opacity:0;margin-left:.3em;display:inline-block;transition:opacity .25s,transform .25s}
+.card:hover .t .arw{opacity:1;transform:translateX(3px)}
+.card .d{margin-top:8px;color:var(--ink-soft);max-width:60ch}
+.card .m{margin-top:12px;font-family:"Space Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.card .m b{color:var(--vermilion-deep);font-weight:400}
+footer{margin-top:70px;padding:24px 0 40px;border-top:1px solid var(--rule);font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.06em;color:var(--ink-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer a{border-bottom:1px solid var(--rule)} footer a:hover{color:var(--ink);border-color:var(--vermilion)}
+@media (max-width:640px){.row{grid-template-columns:1fr} .row .m{text-align:left;padding-top:0;order:-1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><a class="name" href="../">Josh Greenman</a><span><a href="../#writing">Writing</a> &nbsp;·&nbsp; <a href="./">Archive</a></span></div>
+<div class="head"><div class="kick">Archive</div><h1>Earlier writing</h1><p class="note">Past pieces, by publication. Newer work is on the <a href="../#writing" style="border-bottom:1px solid var(--rule)">front page</a> and on Substack.</p></div><div class="list"><a class="card" href="daily-news.html"><div class="t">New York Daily News<span class="arw">→</span></div><div class="d">Op-eds and columns from sixteen years on the opinion pages, first as op-ed editor and then as editorial page editor. Unsigned editorials aren’t listed; the paper ran them without bylines.</div><div class="m"><b>379 pieces</b> · 2007–2021</div></a><a class="card" href="new-york-sun.html"><div class="t">The New York Sun<span class="arw">→</span></div><div class="d">Two op-eds from 2004, written between speechwriting jobs.</div><div class="m"><b>2 pieces</b> · 2004</div></a><a class="card" href="washington-post.html"><div class="t">The Washington Post<span class="arw">→</span></div><div class="d">A humor piece from 2005 and two pieces on the 2025 mayoral race, one written with Greg Berman.</div><div class="m"><b>3 pieces</b> · 2005–2025</div></a></div><footer><span>Headlines and dates are the publications’ own. Links go to the original page and, where the original has moved, to an archived copy.</span><span><a href="../">joshgreenman.com</a></span></footer>
+</div>
+</body>
+</html>

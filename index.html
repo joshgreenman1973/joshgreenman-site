@@ -375,6 +375,8 @@ a.outlet:hover{border-color:var(--ink);color:var(--ink);background:var(--paper-2
 /* ==========================================================
    FOOTER / COLOPHON
    ========================================================== */
+footer .lock{color:var(--ink-faint);border-bottom:1px dotted var(--rule)}
+footer .lock:hover{color:var(--ink);border-color:var(--vermilion)}
 footer{
   border-top:3px double var(--ink);margin-top:min(9vw,72px);
   padding:34px 0 60px;
@@ -444,11 +446,12 @@ footer .mid{color:var(--vermilion-deep)}
 
     <div class="outlets">
       <a class="outlet" href="https://www.vitalcitynyc.org/author/greenman-josh/" target="_blank" rel="noopener"><b>Vital City</b><span class="role">managing editor</span></a>
-      <a class="outlet" href="https://www.nydailynews.com/opinion/" target="_blank" rel="noopener"><b>New York Daily News</b><span class="role">opinion, 2006–2022</span></a>
+      <a class="outlet" href="archive/daily-news.html"><b>New York Daily News</b><span class="role">opinion, 2006–2022</span></a>
       <a class="outlet" href="https://nyeditorialboard.substack.com/" target="_blank" rel="noopener"><b>New York Editorial Board</b><span class="role">member</span></a>
       <a class="outlet" href="https://joshgreenman.substack.com/" target="_blank" rel="noopener"><b>Thoughts About Stuff</b><span class="role">substack</span></a>
       <span class="outlet"><b>Politico Magazine</b></span>
-      <span class="outlet"><b>The New York Sun</b></span>
+      <a class="outlet" href="archive/new-york-sun.html"><b>The New York Sun</b></a>
+      <a class="outlet" href="archive/washington-post.html"><b>The Washington Post</b></a>
       <span class="outlet"><b>The Onion</b><span class="role">early &amp; anonymous</span></span>
     </div>
 
@@ -495,7 +498,7 @@ footer .mid{color:var(--vermilion-deep)}
     </div>
     <!-- AUTO:WRITING END -->
 
-    <p class="archive">Full archive at <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">authory.com/JoshGreenman</a>. New work goes up on <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">the Substack</a>.</p>
+    <p class="archive">Earlier work, by publication: <a href="archive/daily-news.html">New York Daily News</a> · <a href="archive/new-york-sun.html">The New York Sun</a> · <a href="archive/washington-post.html">The Washington Post</a>. Full portfolio at <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">Authory</a>. New work goes up on <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">the Substack</a>.</p>
   </section>
 
   <!-- ===================== EXPERIMENTS ===================== -->
@@ -680,7 +683,7 @@ footer .mid{color:var(--vermilion-deep)}
   <footer>
     <span>© <span id="yr">2026</span> Josh Greenman</span>
     <span class="mid">Set in Fraunces, Newsreader &amp; Space Mono</span>
-    <span>Written &amp; built in <b>Brooklyn, N.Y.</b></span>
+    <span>Written &amp; built in <b>Brooklyn, N.Y.</b> · <a href="archive/full/" class="lock" title="Full clip file (password)">clip file</a></span>
   </footer>
 
 </div>

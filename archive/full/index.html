@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Clip file · Josh Greenman</title>
+<style>
+:root{--paper:#f4efe4;--ink:#181410;--ink-soft:#4a4238;--ink-faint:#8b8172;--rule:#cabfa8;--vermilion:#c4401b}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;min-height:100vh;display:grid;place-items:center}
+form{width:min(420px,90vw)}
+h1{font-size:22px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
+p{margin:0 0 18px;color:var(--ink-soft);font-size:15px;line-height:1.5}
+input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:2px}
+input:focus{outline:2px solid var(--vermilion);outline-offset:1px}
+button{margin-top:12px;font:inherit;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;background:var(--ink);color:var(--paper);border:0;cursor:pointer;border-radius:2px}
+.msg{margin-top:12px;font-size:13px;color:var(--vermilion);min-height:1.2em}
+.back{position:fixed;top:18px;left:22px;font-size:13px;color:var(--ink-faint);text-decoration:none;border-bottom:1px solid var(--rule)}
+</style></head><body>
+<a class="back" href="../../">← joshgreenman.com</a>
+<form id="f">
+  <h1>The clip file</h1>
+  <p>The full recovered archive: every piece with its text, plus what survives of the Twitter feed. It is encrypted on this server and unlocks in your browser.</p>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="Password" autofocus>
+  <button type="submit">Unlock</button>
+  <div class="msg" id="msg"></div>
+</form>
+<script>
+(function(){
+  var f=document.getElementById('f'),pw=document.getElementById('pw'),msg=document.getElementById('msg');
+  function b64(s){var b=atob(s),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a;}
+  f.addEventListener('submit',async function(e){
+    e.preventDefault(); msg.textContent='Unlocking…';
+    try{
+      var r=await fetch('clipfile.enc',{cache:'no-store'}); var d=await r.json();
+      var enc=new TextEncoder();
+      var km=await crypto.subtle.importKey('raw',enc.encode(pw.value),'PBKDF2',false,['deriveKey']);
+      var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+      var pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},key,b64(d.ct));
+      var html=new TextDecoder().decode(pt);
+      document.open(); document.write(html); document.close();
+    }catch(err){ msg.textContent='That password did not unlock it.'; pw.select(); }
+  });
+})();
+</script>
+</body></html>
