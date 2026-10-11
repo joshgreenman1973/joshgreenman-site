@@ -2,19 +2,22 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Clip file · Josh Greenman</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f4efe4;--ink:#181410;--ink-soft:#4a4238;--ink-faint:#706759;--rule:#cabfa8;--vermilion:#bd3d19}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;min-height:100vh;display:grid;place-items:center}
+:root{--bg:#ffffff;--fg:#1b1c1e;--mute:#5e636a;--line:#e2e4e6;--accent:#b42318;color-scheme:light}
+@media (prefers-color-scheme: dark){:root{--bg:#141517;--fg:#e8e8e5;--mute:#a3a7ad;--line:#2d2f33;--accent:#ff8a7a;color-scheme:dark}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Literata",Georgia,"Times New Roman",serif;min-height:100vh;display:grid;place-items:center;-webkit-font-smoothing:antialiased}
 form{width:min(420px,90vw)}
-h1{font-size:22px;font-weight:600;margin:0 0 6px;letter-spacing:-.01em}
-p{margin:0 0 18px;color:var(--ink-soft);font-size:15px;line-height:1.5}
-input{width:100%;box-sizing:border-box;font:inherit;font-size:17px;padding:10px 12px;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:2px}
-input:focus{outline:2px solid var(--vermilion);outline-offset:1px}
-button{margin-top:12px;font:inherit;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;background:var(--ink);color:var(--paper);border:0;cursor:pointer;border-radius:2px}
-.msg{margin-top:12px;font-size:13px;color:var(--vermilion);min-height:1.2em}
-.back{position:fixed;top:18px;left:22px;font-size:13px;color:var(--ink-faint);text-decoration:none;border-bottom:1px solid var(--rule)}
+h1{font-size:1.5rem;font-weight:600;margin:0 0 .4rem;letter-spacing:-.01em}
+p{margin:0 0 1.1rem;color:var(--mute);font-size:1rem;line-height:1.5}
+input{width:100%;box-sizing:border-box;font:1.05rem "Libre Franklin","Helvetica Neue",Arial,sans-serif;padding:.6rem .7rem;border:1px solid var(--fg);background:var(--bg);color:var(--fg);border-radius:0}
+input:focus{outline:2px solid var(--accent);outline-offset:1px}
+button{margin-top:.75rem;font:500 .9rem "Libre Franklin","Helvetica Neue",Arial,sans-serif;padding:.55rem 1.1rem;background:var(--fg);color:var(--bg);border:0;cursor:pointer;border-radius:0}
+.msg{margin-top:.75rem;font:.875rem "Libre Franklin","Helvetica Neue",Arial,sans-serif;color:var(--accent);min-height:1.2em}
+.back{position:fixed;top:18px;left:22px;font:.875rem "Libre Franklin","Helvetica Neue",Arial,sans-serif;color:var(--mute);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.2em}
 </style></head><body>
-<a class="back" href="../../">← joshgreenman.com</a>
+<a class="back" href="../../">joshgreenman.com</a>
 <form id="f">
   <h1>The clip file</h1>
   <p>The full recovered archive: every piece with its text, plus what survives of the Twitter feed. It is encrypted on this server and unlocks in your browser.</p>
