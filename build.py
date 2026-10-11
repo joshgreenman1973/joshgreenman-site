@@ -45,6 +45,7 @@ MANIFEST = (
     "https://raw.githubusercontent.com/joshgreenman1973/experiments/"
     "main/projects-manifest.json"
 )
+EXPERIMENTS_PAGES = "https://joshgreenman1973.github.io/experiments/"
 
 WRITING_ITEMS = 9          # one lead plus eight list rows
 NEW_EXPERIMENTS = 2
@@ -356,6 +357,16 @@ def page_meta(url):
     return {"title": title, "dek": dek}
 
 
+def live_url(p):
+    """Where a project is live. Projects with their own repo carry
+    livePagesUrl; projects that live inside the experiments repo leave it
+    empty and are served from that repo's Pages site instead."""
+    if p.get("livePagesUrl"):
+        return p["livePagesUrl"]
+    m = re.fullmatch(r"\./([\w.-]+)/index\.html", p.get("indexUrl") or "")
+    return EXPERIMENTS_PAGES + m.group(1) + "/" if m else ""
+
+
 def collect_experiments(cfg, already_linked):
     try:
         manifest = get(MANIFEST)
@@ -368,7 +379,7 @@ def collect_experiments(cfg, already_linked):
     deny = set(cfg["experiment_deny"])
     seen, candidates = set(), []
     for p in sorted(projects, key=lambda p: p.get("created") or "", reverse=True):
-        url = p.get("livePagesUrl") or ""
+        url = live_url(p)
         if not url.startswith("https://joshgreenman1973.github.io/"):
             continue
         if p.get("name") in deny or p.get("audience") != "general":
@@ -380,13 +391,13 @@ def collect_experiments(cfg, already_linked):
 
     picked = []
     for p in candidates[:10]:
-        meta = page_meta(p["livePagesUrl"])
+        meta = page_meta(live_url(p))
         if not meta:
             sys.stderr.write("  skipped %s (no usable title/description)\n"
                              % p.get("name"))
             continue
         picked.append({
-            "url": p["livePagesUrl"],
+            "url": live_url(p),
             "date": (p.get("created") or "")[:10],
             "title": cfg["experiment_titles"].get(p["name"], meta["title"]),
             "dek": cfg["experiment_deks"].get(p["name"], meta["dek"]),

@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Josh Greenman</title>
 <meta name="description" content="Josh Greenman writes about New York City: its politics, its policy and how it’s governed. Managing editor of Vital City. His writing and his data tools about the city." />
+<link rel="canonical" href="https://joshgreenman.com/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Josh Greenman" />
+<meta property="og:url" content="https://joshgreenman.com/" />
+<meta property="og:title" content="Josh Greenman" />
+<meta property="og:description" content="Writing about New York City: its politics, its policy and how it’s governed. Managing editor of Vital City." />
+<meta property="og:image" content="https://joshgreenman.com/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Josh Greenman. Writing and data tools about New York City." />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#f4efe4" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,10 +38,10 @@
   --paper-2:#efe9db;
   --ink:#181410;
   --ink-soft:#4a4238;
-  --ink-faint:#8b8172;
+  --ink-faint:#706759;
   --rule:#cabfa8;
   --rule-soft:#ddd4c0;
-  --vermilion:#c4401b;
+  --vermilion:#bd3d19;
   --vermilion-deep:#a5330f;
   --marine:#26485a;
   --shadow:rgba(30,22,12,.12);
@@ -84,7 +100,9 @@ a{color:inherit;text-decoration:none}
   border-bottom:1px solid var(--rule);
   padding-bottom:9px;
 }
+.tape{flex-wrap:wrap}
 .tape span{white-space:nowrap}
+@media(max-width:520px){.tape .wd{display:none}}
 .tape .mid{color:var(--ink);letter-spacing:.2em}
 .tape .r{text-align:right}
 
@@ -410,7 +428,7 @@ footer .mid{color:var(--vermilion-deep)}
   <header class="masthead">
     <div class="tape">
       <span>Brooklyn, New York</span>
-      <span class="r" id="dateline">—</span>
+      <span class="r" id="dateline"></span>
     </div>
 
     <h1 class="nameplate">Josh Greenman</h1>
@@ -511,16 +529,16 @@ footer .mid{color:var(--vermilion-deep)}
 
     <!-- AUTO:NEW-EXPERIMENTS START -->
     <div class="grid grid-new">
-      <a class="card card-new" href="https://joshgreenman1973.github.io/nyc-neighborhood-names/" target="_blank" rel="noopener">
-        <div class="ck"><span class="kicker">New</span><span class="no">Sep 24, 2026</span></div>
-        <h3>When a neighborhood got its name</h3>
-        <p>Seventy-nine New York City neighborhood names and the decade each one arrived in The New York Times.</p>
+      <a class="card card-new" href="https://joshgreenman1973.github.io/experiments/nyc-fleet-chargers/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">New</span><span class="no">Oct 7, 2026</span></div>
+        <h3>Where city vehicles charge</h3>
+        <p>Every charging site in New York City’s own fleet network, mapped and searchable by address, neighborhood, ZIP code, agency and charger type, with the ones open to the public marked.</p>
         <span class="go">Open<span class="x">↗</span></span>
       </a>
-      <a class="card card-new" href="https://joshgreenman1973.github.io/the-waiting-city/" target="_blank" rel="noopener">
-        <div class="ck"><span class="kicker">New</span><span class="no">Sep 5, 2026</span></div>
-        <h3>The Waiting City</h3>
-        <p>How many New Yorkers are standing in a line the city controls, and how long each line is. A registry of 77 lines, each measured in the agency’s own terms.</p>
+      <a class="card card-new" href="https://joshgreenman1973.github.io/experiments/nyc-where-new-york-lives/" target="_blank" rel="noopener">
+        <div class="ck"><span class="kicker">New</span><span class="no">Oct 7, 2026</span></div>
+        <h3>Where New York lives</h3>
+        <p>New York City’s population density at every census from 1910 to 2020, drawn as a landscape that rises where more people live.</p>
         <span class="go">Open<span class="x">↗</span></span>
       </a>
     </div>
@@ -696,7 +714,13 @@ footer .mid{color:var(--vermilion-deep)}
                   "August","September","October","November","December"];
     var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     var el = document.getElementById('dateline');
-    if(el) el.textContent = days[d.getDay()] + ", " + months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear();
+    if(el){
+      var wd = document.createElement('span');
+      wd.className = 'wd';
+      wd.textContent = days[d.getDay()] + ", ";
+      el.appendChild(wd);
+      el.appendChild(document.createTextNode(months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear()));
+    }
     var yr = document.getElementById('yr');
     if(yr) yr.textContent = d.getFullYear();
   })();
