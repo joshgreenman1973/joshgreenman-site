@@ -1,0 +1,89 @@
+{
+ "_note": "Hand-picked tools that always appear in the list. build.py adds the newest few from the experiments manifest on its own; add a tool here to keep it for good. A screenshot for hover previews lives at shots/<last part of the URL>.jpg.",
+ "tools": [
+  {
+   "url": "https://joshgreenman1973.github.io/nyc-history-timeline/",
+   "title": "New York, in Time",
+   "dek": "An interactive history of New York, from the Lenape to the present.",
+   "date": "2026-07-06",
+   "topic": "History"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/nyc-everything-map/",
+   "title": "The Everything Map",
+   "dek": "Click any spot in the city and get a full report on it: neighborhood, districts, representatives and more.",
+   "date": "2026-06-09",
+   "topic": "Maps"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/nyc-grid-pulse/",
+   "title": "NYC Grid Pulse",
+   "dek": "New York’s electricity in real time: demand, supply and price, from the grid operator.",
+   "date": "2026-05-20",
+   "topic": "Energy"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/nyc-harbor-traffic/",
+   "title": "Harbor Motion",
+   "dek": "A live map of the ships, ferries and tugs moving through New York Harbor.",
+   "date": "2026-06-05",
+   "topic": "Transit"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/nyc-precinct-day/",
+   "title": "A day on the police radio",
+   "dek": "Pick a precinct and a day and see what the 911 system logged, hour by hour.",
+   "date": "2026-06-30",
+   "topic": "Crime"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/nyc-cemeteries/",
+   "title": "The permanent residents",
+   "dek": "A map of 594 cemeteries and burial grounds in the five boroughs, including the ones that no longer exist.",
+   "date": "2026-06-11",
+   "topic": "Maps"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/foreign-born-map/",
+   "title": "Foreign-born America",
+   "dek": "Where America’s immigrants live, county by county, by country of origin.",
+   "date": "2026-04-25",
+   "topic": "Population"
+  },
+  {
+   "url": "https://nyc-building-age.vercel.app/",
+   "title": "Every Building",
+   "dek": "Every building in New York, mapped by age, height and type.",
+   "date": "2026-03-13",
+   "topic": "Housing"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/graveyard-of-ideas/",
+   "title": "Graveyard of ideas",
+   "dek": "A century of mayoral campaign promises from the candidates who lost.",
+   "date": "2026-04-30",
+   "topic": "Politics"
+  },
+  {
+   "url": "https://compstat-ledger.vercel.app/",
+   "title": "CompStat in context",
+   "dek": "NYPD CompStat crime data, made easier to read and compare.",
+   "date": "2026-03-09",
+   "topic": "Crime"
+  },
+  {
+   "url": "https://nycnewsengine.com/",
+   "title": "NYC News Engine",
+   "dek": "Scans local news sources to catch New York stories as they break.",
+   "date": "2026-03-11",
+   "topic": "Tools"
+  },
+  {
+   "url": "https://joshgreenman1973.github.io/nyc-open-data-explorer/",
+   "title": "Open Data explorer",
+   "dek": "3,000-plus city datasets, mapped and searchable in plain English.",
+   "date": "2026-04-30",
+   "topic": "Data"
+  }
+ ]
+}

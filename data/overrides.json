@@ -120,9 +120,16 @@
     "GOP"
   ],
   "skip_titles": [
-    "^editors?['\u2019]?s?\\s+note"
+    "^editors?['’]?s?\\s+note"
   ],
-  "title_overrides": {},
+  "title_overrides": {
+    "What We May Miss About Eric Adams": "What we may miss about Eric Adams",
+    "The New York City Charter Revision Commission’s Significant Sin of Omission": "The New York City Charter Revision Commission’s significant sin of omission",
+    "Why We Scream: A Conversation with Laura B. Weiss": "Why we scream: A conversation with Laura B. Weiss",
+    "You Think This Is Hot? A Conversation with Michael Oppenheimer and Mark Chambers": "You think this is hot? A conversation with Michael Oppenheimer and Mark Chambers",
+    "Black-Market Brooklyn": "Black-market Brooklyn",
+    "Ben Tucker on Tyre Nichols: What’s Race and Training Got to Do With It?": "Ben Tucker on Tyre Nichols: What’s race and training got to do with it?"
+  },
   "dek_overrides": {},
   "experiment_deny": [
     "404",

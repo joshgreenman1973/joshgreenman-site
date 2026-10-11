@@ -9,26 +9,48 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,540&family=Newsreader:opsz,wght@6..72,380;6..72,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet" />
 <style>
-:root{--paper:#f4efe4;--ink:#181410;--ink-soft:#4a4238;--rule:#cabfa8;--vermilion:#bd3d19;--vermilion-deep:#a5330f}
+:root{--bg:#ffffff;--fg:#1b1c1e;--mute:#5e636a;--line:#e2e4e6;--accent:#b42318;color-scheme:light}
+@media (prefers-color-scheme: dark){:root{--bg:#141517;--fg:#e8e8e5;--mute:#a3a7ad;--line:#2d2f33;--accent:#ff8a7a;color-scheme:dark}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:380 20px/1.6 "Newsreader",Georgia,serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1140px;margin:0 auto;padding:34px clamp(20px,5vw,64px) 80px}
-.name{display:inline-block;font:540 clamp(30px,4vw,44px)/1 "Fraunces",serif;letter-spacing:-.028em;padding-bottom:22px;border-bottom:1px solid var(--rule);width:100%}
-h1{font:540 clamp(28px,4vw,40px)/1.15 "Fraunces",serif;letter-spacing:-.018em;margin:64px 0 14px}
-p{margin:0 0 1em;max-width:36ch;color:var(--ink-soft)}
-a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule)}
-a:hover{color:var(--vermilion-deep);border-color:var(--vermilion)}
-.name a{border:0}
+[hidden]{display:none !important}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.55 "Literata",Georgia,serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:40rem;padding:2.5rem clamp(16px,4vw,3.5rem) 4rem}
+.name{font-weight:600;font-size:1.9rem;line-height:1.1;margin:0 0 2.5rem;letter-spacing:-.01em}
+.name a{color:inherit;text-decoration:none}
+h1{font-weight:600;font-size:1.4rem;margin:0 0 .6rem}
+p{margin:0 0 1rem;color:var(--mute)}
+a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.2em}
+a:hover{text-decoration-color:var(--fg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.try{font:1rem "Libre Franklin","Helvetica Neue",Arial,sans-serif}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="name"><a href="/">Josh Greenman</a></div>
+  <p class="name"><a href="/">Josh Greenman</a></p>
   <h1>That page isn’t here.</h1>
-  <p>It may have moved, or the link may be mistyped. Try the <a href="/#writing">writing</a>, the <a href="/#experiments">experiments</a> or the <a href="https://joshgreenman1973.github.io/experiments/projects.html">full catalogue of tools</a>.</p>
-  <p><a href="/">Back to the front page</a></p>
+  <p>It may have moved, or the link may be mistyped.</p>
+  <p class="try" id="try" hidden></p>
+  <p><a href="/">Everything I’ve published</a> is on the front page, and every tool is in the <a href="https://joshgreenman1973.github.io/experiments/projects.html">catalogue</a>.</p>
 </div>
+<script>
+  // Turn the broken address into a search of the archive: /congestion-pricing -> /?q=congestion pricing
+  (function(){
+    var words = decodeURIComponent(location.pathname)
+      .replace(/\.html?$/i, "").split(/[^A-Za-z0-9]+/)
+      .filter(function(w){ return w.length > 2 && !/^(nyc|www|html|index|archive|the|and)$/i.test(w); })
+      .slice(-3);
+    if(!words.length) return;
+    var q = words.join(" ").toLowerCase();
+    var el = document.getElementById("try");
+    var a = document.createElement("a");
+    a.href = "/?q=" + encodeURIComponent(q);
+    a.textContent = "Search for “" + q + "”";
+    el.appendChild(a);
+    el.hidden = false;
+  })();
+</script>
 </body>
 </html>

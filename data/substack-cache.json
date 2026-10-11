@@ -1,5 +1,5 @@
 {
- "source": "https://joshgreenman.substack.com/api/v1/archive?sort=new&limit=30",
+ "source": "https://joshgreenman.substack.com/api/v1/archive?sort=new&limit=50",
  "newest": "2026-08-08",
  "posts": [
   {

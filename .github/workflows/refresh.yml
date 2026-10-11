@@ -13,6 +13,8 @@ on:
     paths:
       - "build.py"
       - "data/overrides.json"
+      - "data/tools.json"
+      - "data/archive-static.json"
       - ".github/workflows/refresh.yml"
 
 permissions:

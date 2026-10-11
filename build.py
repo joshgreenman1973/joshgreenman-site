@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 """
-Refresh the auto-generated blocks in index.html.
+Refresh the auto-generated list in index.html.
 
-Two blocks are machine-written; everything else on the page is hand-written and
+One block is machine-written; everything else on the page is hand-written and
 is never touched:
 
-  <!-- AUTO:WRITING START -->          the Latest lead + the nine-item list
-  <!-- AUTO:NEW-EXPERIMENTS START -->  the two newest live experiments
+  <!-- AUTO:ARCHIVE START -->   every piece and tool, newest first, by year
 
-Sources, all public and keyless:
-  Substack archive API   https://joshgreenman.substack.com/api/v1/archive
-  Vital City Ghost API   https://vital-city.ghost.io/ghost/api/content/posts/
-  Experiments manifest   raw projects-manifest.json from the experiments repo
-  Each experiment's own <title> and <meta name="description">
+Sources:
+  data/archive-static.json Daily News, Sun, Post and Politico pieces (fixed)
+  Substack archive API     https://joshgreenman.substack.com/api/v1/archive
+  Vital City Ghost API     https://vital-city.ghost.io/ghost/api/content/posts/
+  data/tools.json          hand-picked tools that always appear
+  Experiments manifest     the newest few tools, read from each one's own
+                           <title> and <meta name="description">
+  shots/<slug>.jpg         screenshots for hover previews, if present
+
+    python3 build.py           rebuild the list
+    python3 build.py --shots   also screenshot any listed tool that has no
+                               shot yet (needs Google Chrome; run on the Mac)
 
 Fails loudly. If a source returns nothing, or too little to be plausible, the
 script exits non-zero and writes nothing, rather than quietly publishing an
@@ -22,23 +28,30 @@ empty page.
 """
 
 import html
+import itertools
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.error
 import urllib.request
+from urllib.parse import urlparse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 INDEX = os.path.join(HERE, "index.html")
 OVERRIDES = os.path.join(HERE, "data", "overrides.json")
 CACHE = os.path.join(HERE, "data", "substack-cache.json")
+STATIC = os.path.join(HERE, "data", "archive-static.json")
+TOOLS = os.path.join(HERE, "data", "tools.json")
+SHOTS = os.path.join(HERE, "shots")
+CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
-SUBSTACK = "https://joshgreenman.substack.com/api/v1/archive?sort=new&limit=30"
+SUBSTACK = "https://joshgreenman.substack.com/api/v1/archive?sort=new&limit=50"
 GHOST_KEY = "dd8e178e9ddfc883537e71dd07"
 GHOST = (
     "https://vital-city.ghost.io/ghost/api/content/posts/"
-    "?key=" + GHOST_KEY + "&limit=25&order=published_at%20desc"
+    "?key=" + GHOST_KEY + "&limit=50&order=published_at%20desc"
     "&filter=authors.slug:greenman-josh"
 )
 MANIFEST = (
@@ -47,13 +60,13 @@ MANIFEST = (
 )
 EXPERIMENTS_PAGES = "https://joshgreenman1973.github.io/experiments/"
 
-WRITING_ITEMS = 9          # one lead plus eight list rows
-NEW_EXPERIMENTS = 2
-MIN_WRITING = 6            # fewer than this means a source broke
+NEW_EXPERIMENTS = 4        # newest tools added to the hand-picked ones
+MIN_WRITING = 6            # fewer than this from Substack + Vital City means a source broke
+MIN_STATIC = 300           # the fixed archive should never shrink below this
 UA = "joshgreenman.com site builder (+https://joshgreenman.com)"
 
-MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-          "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+AP_MONTHS = ["Jan.", "Feb.", "March", "April", "May", "June",
+             "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."]
 
 
 # --------------------------------------------------------------------------
@@ -182,9 +195,16 @@ def esc(s):
     return html.escape(s, quote=True)
 
 
-def short_date(iso):
-    y, m, d = int(iso[0:4]), int(iso[5:7]), int(iso[8:10])
-    return MONTHS[m - 1] + " " + str(y), MONTHS[m - 1] + " " + str(d) + ", " + str(y)
+def ap_date(iso):
+    """'2026-10-07' -> 'Oct. 7' (the year heads the group)."""
+    return AP_MONTHS[int(iso[5:7]) - 1] + " " + str(int(iso[8:10]))
+
+
+def first_sentence(s, limit=220):
+    s = re.sub(r"\s+", " ", s or "").strip()
+    m = re.match(r"(.{40,}?[.?!])(\s|$)", s)
+    s = m.group(1) if m else s
+    return s if len(s) <= limit else s[:limit].rsplit(" ", 1)[0] + "..."
 
 
 # --------------------------------------------------------------------------
@@ -251,7 +271,8 @@ def collect_writing(cfg):
             continue
         items.append({
             "title": t,
-            "dek": smarten(p.get("custom_excerpt") or ""),
+            "dek": smarten(p.get("custom_excerpt")
+                           or first_sentence(p.get("excerpt") or "")),
             "url": p.get("url") or "",
             "date": (p.get("published_at") or "")[:10],
             "outlet": "Vital City",
@@ -293,35 +314,7 @@ def collect_writing(cfg):
     if len(deduped) < MIN_WRITING:
         die("only %d pieces after dedupe, expected at least %d"
             % (len(deduped), MIN_WRITING))
-    return deduped[:WRITING_ITEMS]
-
-
-def render_writing(items):
-    lead, rest = items[0], items[1:]
-    month_year, full = short_date(lead["date"])
-    out = ['<a class="lead" href="%s" target="_blank" rel="noopener">'
-           % esc(lead["url"]),
-           '  <span class="kicker">Latest</span>',
-           '  <span class="lead-t">%s<span class="arw">↗</span></span>'
-           % esc(lead["title"])]
-    if lead["dek"]:
-        out.append('  <span class="lead-dek">%s</span>' % esc(lead["dek"]))
-    out.append('  <span class="lead-m"><b>%s</b> · %s</span>'
-               % (esc(lead["outlet"]), esc(full)))
-    out.append('</a>')
-
-    out.append('<div class="toc">')
-    for it in rest:
-        month_year, _ = short_date(it["date"])
-        out.append('  <a href="%s" target="_blank" rel="noopener">'
-                   % esc(it["url"]))
-        out.append('    <span class="t">%s<span class="arw">↗</span></span>'
-                   % esc(it["title"]))
-        out.append('    <span class="m"><b>%s</b> · %s</span>'
-                   % (esc(it["outlet"]), esc(month_year)))
-        out.append('  </a>')
-    out.append('</div>')
-    return "\n".join(out)
+    return deduped
 
 
 # --------------------------------------------------------------------------
@@ -405,25 +398,130 @@ def collect_experiments(cfg, already_linked):
         if len(picked) == NEW_EXPERIMENTS:
             break
 
-    if len(picked) < NEW_EXPERIMENTS:
-        die("found only %d publishable new experiments, expected %d"
-            % (len(picked), NEW_EXPERIMENTS))
+    if len(picked) < 2:
+        die("found only %d publishable new experiments, expected at least 2"
+            % len(picked))
     return picked
 
 
-def render_experiments(items):
-    out = ['<div class="grid grid-new">']
+# --------------------------------------------------------------------------
+# the list
+# --------------------------------------------------------------------------
+
+OUTLET_KEYS = {
+    "Daily News": "dn", "Vital City": "vc", "Substack": "ss",
+    "New York Sun": "other", "Washington Post": "other",
+    "Politico Magazine": "other", "Tool": "tool",
+}
+
+
+def slug_of(url):
+    """Where a tool's screenshot lives: the last part of its URL."""
+    p = urlparse(url)
+    parts = [x for x in p.path.split("/") if x]
+    return parts[-1] if parts else (p.hostname or "tool").split(".")[0]
+
+
+def collect_static():
+    with open(STATIC, encoding="utf-8") as f:
+        items = json.load(f).get("items") or []
+    if len(items) < MIN_STATIC:
+        die("data/archive-static.json holds only %d pieces" % len(items))
     for it in items:
-        _, full = short_date(it["date"])
-        out.append('  <a class="card card-new" href="%s" target="_blank" rel="noopener">'
-                   % esc(it["url"]))
-        out.append('    <div class="ck"><span class="kicker">New</span>'
-                   '<span class="no">%s</span></div>' % esc(full))
-        out.append('    <h3>%s</h3>' % esc(it["title"]))
-        out.append('    <p>%s</p>' % esc(it["dek"]))
-        out.append('    <span class="go">Open<span class="x">↗</span></span>')
-        out.append('  </a>')
-    out.append('</div>')
+        it["title"] = undash(smarten(it["title"]))
+    return items
+
+
+def collect_tools(cfg):
+    with open(TOOLS, encoding="utf-8") as f:
+        curated = json.load(f).get("tools") or []
+    linked = {t["url"].rstrip("/") for t in curated}
+    newest = collect_experiments(cfg, linked)
+    tools = [{"title": t["title"], "dek": t["dek"], "url": t["url"],
+              "date": t["date"]} for t in curated + newest]
+    for t in tools:
+        t["outlet"] = "Tool"
+    return tools, newest
+
+
+def merge(static, writing, tools):
+    """One list, newest first. A piece listed twice (a paper that moved it to
+    a new address, a Substack mirror) keeps its first, most authoritative copy."""
+    seen, out = set(), []
+    for it in writing + static:
+        key = re.sub(r"[^a-z0-9]+", "", it["title"].lower())[:60]
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(it)
+    out += tools
+    out.sort(key=lambda i: i["date"], reverse=True)
+    return out
+
+
+def take_shots(tools):
+    """Screenshot any listed tool without one. Best-effort and Mac-only: a
+    missing shot only means no hover preview for that tool."""
+    if not os.path.exists(CHROME):
+        print("shots: no Chrome here, skipped")
+        return
+    try:
+        from PIL import Image
+    except ImportError:
+        print("shots: Pillow not installed, skipped")
+        return
+    os.makedirs(SHOTS, exist_ok=True)
+    for t in tools:
+        dest = os.path.join(SHOTS, slug_of(t["url"]) + ".jpg")
+        if os.path.exists(dest):
+            continue
+        tmp = dest + ".png"
+        try:
+            subprocess.run([CHROME, "--headless=new", "--hide-scrollbars",
+                            "--window-size=1280,800", "--virtual-time-budget=10000",
+                            "--screenshot=" + tmp, t["url"]],
+                           capture_output=True, timeout=90)
+            im = Image.open(tmp).convert("RGB").crop((0, 0, 1280, 800))
+            im.resize((600, 375), Image.LANCZOS).save(
+                dest, "JPEG", quality=72, optimize=True, progressive=True)
+            print("shots: captured " + slug_of(t["url"]))
+        except Exception as e:                       # noqa: BLE001
+            print("shots: could not capture %s (%s)" % (t["url"], e))
+        finally:
+            if os.path.exists(tmp):
+                os.remove(tmp)
+
+
+def render_list(items):
+    out = []
+    for year, group in itertools.groupby(items, key=lambda i: i["date"][:4]):
+        group = list(group)
+        n = len(group)
+        out.append('<section class="yg" data-year="%s">' % year)
+        out.append('  <h2 class="yh"><span class="yy">%s</span> '
+                   '<span class="yn">%d %s</span></h2>'
+                   % (year, n, "item" if n == 1 else "items"))
+        out.append('  <ul>')
+        for it in group:
+            tool = it["outlet"] == "Tool"
+            shot = ""
+            if tool and os.path.exists(os.path.join(SHOTS, slug_of(it["url"]) + ".jpg")):
+                shot = ' data-shot="shots/%s.jpg"' % esc(slug_of(it["url"]))
+            dek = undash(smarten(it.get("dek") or ""))
+            out.append('    <li class="it%s" data-d="%s" data-o="%s">'
+                       % (" tool" if tool else "", esc(it["date"]),
+                          OUTLET_KEYS.get(it["outlet"], "other")))
+            out.append('      <span class="d">%s</span>' % esc(ap_date(it["date"])))
+            line = ('      <span class="t"><a href="%s" target="_blank" rel="noopener"%s>%s</a>'
+                    % (esc(it["url"]), shot, esc(it["title"])))
+            if dek:
+                line += ('<span class="x">%s</span>' if tool
+                         else '<span class="x dek" hidden>%s</span>') % esc(dek)
+            out.append(line + '</span>')
+            out.append('      <span class="o">%s</span>' % esc(it["outlet"]))
+            out.append('    </li>')
+        out.append('  </ul>')
+        out.append('</section>')
     return "\n".join(out)
 
 
@@ -449,21 +547,21 @@ def main():
     with open(INDEX, encoding="utf-8") as f:
         page = f.read()
 
-    # Hand-picked experiment cards keep their spot; the new pair never repeats one.
-    already = {u.rstrip("/") for u in
-               re.findall(r'<a class="card" href="([^"]+)"', page)}
-
+    static = collect_static()
     writing = collect_writing(cfg)
-    print("writing: %d pieces, newest %s (%s)"
+    print("writing: %d from Substack and Vital City, newest %s (%s)"
           % (len(writing), writing[0]["title"], writing[0]["date"]))
+    tools, newest = collect_tools(cfg)
+    print("tools: %d, newest %s" % (len(tools), ", ".join(
+        "%s (%s)" % (t["title"], t["date"]) for t in newest)))
+    if "--shots" in sys.argv:
+        take_shots(tools)
 
-    experiments = collect_experiments(cfg, already)
-    print("experiments: " + ", ".join("%s (%s)" % (e["title"], e["date"])
-                                      for e in experiments))
+    items = merge(static, writing, tools)
+    print("list: %d items, %s to %s"
+          % (len(items), items[-1]["date"][:4], items[0]["date"][:4]))
 
-    page = replace_block(page, "WRITING", render_writing(writing))
-    page = replace_block(page, "NEW-EXPERIMENTS", render_experiments(experiments))
-
+    page = replace_block(page, "ARCHIVE", render_list(items))
     with open(INDEX, "w", encoding="utf-8") as f:
         f.write(page)
     print("index.html written")
