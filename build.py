@@ -8,7 +8,7 @@ is never touched:
   <!-- AUTO:ARCHIVE START -->   every piece and tool, newest first, by year
 
 Sources:
-  data/archive-static.json Daily News, Sun, Post and Politico pieces (fixed)
+  data/archive-static.json Daily News, Sun, Post, Politico and Slate pieces (fixed)
   Substack archive API     https://joshgreenman.substack.com/api/v1/archive
   Vital City Ghost API     https://vital-city.ghost.io/ghost/api/content/posts/
   data/tools.json          hand-picked tools that always appear
@@ -411,7 +411,7 @@ def collect_experiments(cfg, already_linked):
 OUTLET_KEYS = {
     "Daily News": "dn", "Vital City": "vc", "Substack": "ss",
     "New York Sun": "other", "Washington Post": "other",
-    "Politico Magazine": "other", "Tool": "tool",
+    "Politico Magazine": "other", "Slate": "other", "Tool": "tool",
 }
 
 

@@ -1,5 +1,5 @@
 {
- "_note": "Pieces from papers that no longer change: built once from the archive/*.html pages (themselves generated from the private clip file). build.py merges these with the live Substack and Vital City feeds.",
+ "_note": "Pieces from papers that no longer change: built once from the archive/*.html pages (themselves generated from the private clip file), plus two Slate pieces added by hand. build.py merges these with the live Substack and Vital City feeds.",
  "items": [
   {
    "date": "2025-09-08",
@@ -2291,6 +2291,13 @@
    "dek": "For the Sake of (Circular) Argument. If: Talk show hosts never made outlandish arguments / Then: Fewer people would listen to radio ..."
   },
   {
+   "date": "2004-12-21",
+   "title": "A giant step forward for punctuation¡",
+   "url": "https://slate.com/news-and-politics/2004/12/introducing-the-long-awaited-sarcasm-point.html",
+   "outlet": "Slate",
+   "dek": "A proposal for a sarcasm point: the inverted exclamation mark, for text that means the opposite of what it says."
+  },
+  {
    "date": "2004-10-28",
    "title": "Alexander the Great",
    "url": "https://www.nysun.com/article/opinion-alexander-the-great",
@@ -2303,6 +2310,13 @@
    "url": "https://www.nysun.com/article/opinion-tragicomedy-in-albany",
    "outlet": "New York Sun",
    "dek": "As the school year begins, the curtain’s almost down on the education tragicomedy in Albany, and the city schools should soon get their court ordered wish: an infusion of billions of tax dollars…"
+  },
+  {
+   "date": "2001-10-24",
+   "title": "Brookings fight song",
+   "url": "https://slate.com/news-and-politics/2001/10/brookings-fight-song-the-winners.html",
+   "outlet": "Slate",
+   "dek": "Third runner-up in Slate’s Chatterbox contest for a Brookings Institution fight song. “O Brookings, careful scholar, / We rally to your cause.”"
   }
  ]
 }
