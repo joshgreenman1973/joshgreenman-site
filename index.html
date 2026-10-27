@@ -27,6 +27,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet" />
 
+<link rel="preload" href="fonts/Washington1889-Regular.woff2" as="font" type="font/woff2" crossorigin />
+
 <script>document.documentElement.classList.add("js")</script>
 <style>
 /* Two columns: a rail that stays put (name, bio, search, filters, a chart of
@@ -46,6 +48,8 @@
     color-scheme:dark;
   }
 }
+/* Year numerals: Washington 1889, an 1889 display face revived by Font Revival (MIT). */
+@font-face{font-family:"Washington 1889";src:url(fonts/Washington1889-Regular.woff2) format("woff2");font-display:swap}
 *{box-sizing:border-box}
 [hidden]{display:none !important}
 html{-webkit-text-size-adjust:100%}
@@ -112,6 +116,7 @@ details summary:hover{color:var(--fg)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .foot{font:.8rem var(--sans);color:var(--mute);margin:1.4rem 0 0}
 .foot a{text-decoration:underline;text-decoration-color:var(--line)}
+.foot .credit{display:block;font-size:.7rem;margin-top:.3rem}
 
 /* ---------- main column ---------- */
 .otd{background:var(--panel);padding:1.1rem 1.25rem 1.2rem;margin:0 0 2rem}
@@ -125,7 +130,7 @@ details summary:hover{color:var(--fg)}
 
 .yg{margin:0 0 1.8rem}
 .yh{display:flex;align-items:baseline;gap:.7rem;font-family:var(--sans);margin:0 0 .2rem;padding-bottom:.35rem;border-bottom:1px solid var(--fg)}
-.yy{font-size:1.35rem;font-weight:600;font-variant-numeric:tabular-nums}
+.yy{font:400 2rem/1 "Washington 1889",var(--sans)}
 .yn{font-size:.875rem;font-weight:400;color:var(--mute)}
 .yg ul{list-style:none;margin:0;padding:0}
 .it{display:grid;grid-template-columns:4.4rem minmax(0,1fr) 8rem;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--line);align-items:baseline}
@@ -230,7 +235,7 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
           </form>
         </details>
 
-        <p class="foot">© <span id="yr">2026</span> Josh Greenman, Brooklyn · <a href="archive/full/" title="The full clip file (password)">Clip file</a></p>
+        <p class="foot">© <span id="yr">2026</span> Josh Greenman, Brooklyn · <a href="archive/full/" title="The full clip file (password)">Clip file</a><span class="credit">Year numerals: Washington 1889, from <a href="https://github.com/fontrevival/font-revival">Font Revival</a></span></p>
       </div>
     </aside>
 
