@@ -10,9 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet" />
-<link rel="preload" href="/fonts/Washington1889-Regular.woff2" as="font" type="font/woff2" crossorigin />
 <style>
-@font-face{font-family:"Washington 1889";src:url(/fonts/Washington1889-Regular.woff2) format("woff2");font-display:swap}
 :root{--bg:#ffffff;--fg:#1b1c1e;--mute:#5e636a;--line:#e2e4e6;--accent:#b42318;color-scheme:light}
 @media (prefers-color-scheme: dark){:root{--bg:#141517;--fg:#e8e8e5;--mute:#a3a7ad;--line:#2d2f33;--accent:#ff8a7a;color-scheme:dark}}
 *{box-sizing:border-box}
@@ -26,21 +24,16 @@ p{margin:0 0 1rem;color:var(--mute)}
 a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:.2em}
 a:hover{text-decoration-color:var(--fg)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.big{font:400 4.5rem/1 "Washington 1889",Georgia,serif;margin:0 0 .6rem;color:var(--fg)}
-.fine{font:.7rem "Libre Franklin","Helvetica Neue",Arial,sans-serif;margin-top:2.5rem}
-.fine a{color:inherit}
 .try{font:1rem "Libre Franklin","Helvetica Neue",Arial,sans-serif}
 </style>
 </head>
 <body>
 <div class="wrap">
   <p class="name"><a href="/">Josh Greenman</a></p>
-  <p class="big" aria-hidden="true">404</p>
   <h1>That page isn’t here.</h1>
   <p>It may have moved, or the link may be mistyped.</p>
   <p class="try" id="try" hidden></p>
   <p><a href="/">Everything I’ve published</a> is on the front page, and every tool is in the <a href="https://joshgreenman1973.github.io/experiments/projects.html">catalogue</a>.</p>
-  <p class="fine">Numerals: Washington 1889, from <a href="https://github.com/fontrevival/font-revival">Font Revival</a></p>
 </div>
 <script>
   // Turn the broken address into a search of the archive: /congestion-pricing -> /?q=congestion pricing

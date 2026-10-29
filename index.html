@@ -27,8 +27,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet" />
 
-<link rel="preload" href="fonts/Washington1889-Regular.woff2" as="font" type="font/woff2" crossorigin />
-
 <script>document.documentElement.classList.add("js")</script>
 <style>
 /* Two columns: a rail that stays put (name, bio, search, filters, a chart of
@@ -37,6 +35,7 @@
 :root{
   --bg:#ffffff; --fg:#1b1c1e; --mute:#5e636a; --line:#e2e4e6; --panel:#f3f4f5;
   --accent:#b42318; --mark:#ffe873; --bar:#2a2c30; --field:#ffffff;
+  --k-tool:#2c6a96; --k-dn:#5c6e2c; --k-vc:#a8402a; --k-ss:#9a5a12; --k-other:#73579a;
   --serif:"Literata",Georgia,"Times New Roman",serif;
   --sans:"Libre Franklin","Helvetica Neue",Arial,sans-serif;
   color-scheme:light;
@@ -45,11 +44,10 @@
   :root{
     --bg:#141517; --fg:#e8e8e5; --mute:#a3a7ad; --line:#2d2f33; --panel:#1e2023;
     --accent:#ff8a7a; --mark:#6b5800; --bar:#d4d4d0; --field:#1a1b1e;
+    --k-tool:#8dbbe2; --k-dn:#b3c47e; --k-vc:#ef9a84; --k-ss:#e2ab68; --k-other:#bfa7e0;
     color-scheme:dark;
   }
 }
-/* Year numerals: Washington 1889, an 1889 display face revived by Font Revival (MIT). */
-@font-face{font-family:"Washington 1889";src:url(fonts/Washington1889-Regular.woff2) format("woff2");font-display:swap}
 *{box-sizing:border-box}
 [hidden]{display:none !important}
 html{-webkit-text-size-adjust:100%}
@@ -91,6 +89,7 @@ details summary:hover{color:var(--fg)}
 .filters button:hover{color:var(--fg)}
 .filters button[aria-pressed="true"]{color:var(--fg);border-bottom-color:var(--fg)}
 .filters .n{font-variant-numeric:tabular-nums}
+.filters button[data-from]:not([data-from="all"])::before,.it .o::before{content:"";display:inline-block;width:.45em;height:.45em;border-radius:50%;background:var(--k);margin-right:.4em;vertical-align:.1em}
 
 .chart{margin:0;font-family:var(--sans)}
 .chart svg{width:100%;height:auto;display:block;overflow:visible}
@@ -116,10 +115,9 @@ details summary:hover{color:var(--fg)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .foot{font:.8rem var(--sans);color:var(--mute);margin:1.4rem 0 0}
 .foot a{text-decoration:underline;text-decoration-color:var(--line)}
-.foot .credit{display:block;font-size:.7rem;margin-top:.3rem}
 
 /* ---------- main column ---------- */
-.otd{background:var(--panel);padding:1.1rem 1.25rem 1.2rem;margin:0 0 2rem}
+.otd{background:var(--panel);padding:1.1rem 1.25rem 1.2rem;margin:2.5rem 0 0;max-width:44rem}
 .otd .k{font:.875rem var(--sans);color:var(--mute);margin:0 0 .3rem}
 .otd .ot{font-size:1.3rem;line-height:1.3;font-weight:500;text-wrap:balance}
 .otd .o{font:.875rem var(--sans);color:var(--mute);margin:.4rem 0 0}
@@ -130,12 +128,19 @@ details summary:hover{color:var(--fg)}
 
 .yg{margin:0 0 1.8rem}
 .yh{display:flex;align-items:baseline;gap:.7rem;font-family:var(--sans);margin:0 0 .2rem;padding-bottom:.35rem;border-bottom:1px solid var(--fg)}
-.yy{font:400 2rem/1 "Washington 1889",var(--sans)}
+.yy{font-size:1.35rem;font-weight:600;font-variant-numeric:tabular-nums}
 .yn{font-size:.875rem;font-weight:400;color:var(--mute)}
 .yg ul{list-style:none;margin:0;padding:0}
 .it{display:grid;grid-template-columns:4.4rem minmax(0,1fr) 8rem;gap:1rem;padding:.45rem 0;border-bottom:1px solid var(--line);align-items:baseline}
 .it .d,.it .o{font:.85rem var(--sans);color:var(--mute)}
-.it .o{text-align:right}
+.it .o{text-align:right;color:var(--k)}
+/* each kind of listing gets its own quiet color: the outlet label and a dot,
+   repeated on the filter buttons so they double as the key */
+[data-o="tool"],[data-from="tool"]{--k:var(--k-tool)}
+[data-o="dn"],[data-from="dn"]{--k:var(--k-dn)}
+[data-o="vc"],[data-from="vc"]{--k:var(--k-vc)}
+[data-o="ss"],[data-from="ss"]{--k:var(--k-ss)}
+[data-o="other"],[data-from="other"]{--k:var(--k-other)}
 .it .t a{text-wrap:pretty}
 .it .x{display:block;font-size:.9rem;color:var(--mute);margin-top:.1rem}
 .it.tool .t a{font-weight:500}
@@ -235,12 +240,11 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
           </form>
         </details>
 
-        <p class="foot">© <span id="yr">2026</span> Josh Greenman, Brooklyn · <a href="archive/full/" title="The full clip file (password)">Clip file</a><span class="credit">Year numerals: Washington 1889, from <a href="https://github.com/fontrevival/font-revival">Font Revival</a></span></p>
+        <p class="foot">© <span id="yr">2026</span> Josh Greenman, Brooklyn · <a href="archive/full/" title="The full clip file (password)">Clip file</a></p>
       </div>
     </aside>
 
     <main class="main">
-      <div class="otd" id="otd" hidden></div>
       <p class="count js-only" id="count" role="status"></p>
       <div class="list" id="list">
         <!-- AUTO:ARCHIVE START -->
@@ -2237,6 +2241,7 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
         <!-- AUTO:ARCHIVE END -->
       </div>
       <p class="more">Summaries and archived copies of the older pieces are on their own pages: <a href="archive/daily-news.html">Daily News</a>, <a href="archive/new-york-sun.html">The New York Sun</a>, <a href="archive/washington-post.html">The Washington Post</a>. The full portfolio is on <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">Authory</a>, and every tool is in the <a href="https://joshgreenman1973.github.io/experiments/projects.html" target="_blank" rel="noopener">catalogue</a>.</p>
+      <div class="otd" id="otd" hidden></div>
     </main>
 
   </div>
