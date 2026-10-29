@@ -72,12 +72,7 @@ button,input,textarea{font:inherit;color:inherit}
 .bio a:hover{text-decoration-color:var(--fg)}
 details summary{font:.875rem var(--sans);color:var(--mute);cursor:pointer;margin-bottom:.6rem;width:max-content;max-width:100%}
 details summary:hover{color:var(--fg)}
-.sbio{margin-top:.2rem}
 .to-contact{display:none}
-.bio-box{background:var(--panel);padding:.8rem .9rem;font-size:.95rem;margin-bottom:.4rem}
-.bio-box p{margin:0 0 .5rem}
-.textbtn{background:none;border:0;padding:0;font:.875rem var(--sans);text-decoration:underline;cursor:pointer}
-.copied{font:.875rem var(--sans);color:var(--mute);margin-left:.5rem}
 
 .search{margin:1.6rem 0 .9rem}
 .search label{display:flex;justify-content:space-between;gap:1rem;font:.875rem var(--sans);color:var(--mute);margin-bottom:.35rem}
@@ -189,20 +184,13 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
         <p class="live" id="live" hidden></p>
         <div class="bio">
           <p>I write about New York City: its politics, its policy and how it’s governed.</p>
-          <p>I’m managing editor of <a href="https://www.vitalcitynyc.org/" target="_blank" rel="noopener">Vital City</a>, a journal of ideas about New York policy. For nearly 17 years I edited opinion at the <a href="https://www.nydailynews.com/opinion/" target="_blank" rel="noopener">New York Daily News</a>, as op-ed editor and then editorial page editor.</p>
+          <p>I’m managing editor of <a href="https://www.vitalcitynyc.org/" target="_blank" rel="noopener">Vital City</a>, a journal of ideas about New York policy. For nearly 17 years I edited and wrote opinion pieces at the <a href="https://www.nydailynews.com/opinion/" target="_blank" rel="noopener">New York Daily News</a>, as op-ed editor and then editorial page editor.</p>
           <details>
             <summary>More</summary>
             <p>Before that, speechwriting and policy in New York and Washington. Years ago I wrote headlines for <a href="https://theonion.com/" target="_blank" rel="noopener">The Onion</a>. I publish <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">Thoughts About Stuff</a> on Substack. I live in Brooklyn with my wife and our two daughters.</p>
             <p>Lately I’ve been making data tools about New York too. They’re mixed in with the writing.</p>
           </details>
           <p class="to-contact"><a href="#contact">Links and contact</a></p>
-          <details class="sbio">
-            <summary>Short bio, for introductions</summary>
-            <div class="bio-box">
-              <p id="sb-text">Josh Greenman is managing editor of Vital City, a journal of ideas about New York City policy. From 2006 to 2022 he edited opinion at the New York Daily News, first as op-ed editor and then as editorial page editor. He writes Thoughts About Stuff on Substack and builds data tools about the city. He lives in Brooklyn.</p>
-              <button type="button" class="textbtn js-only" id="sb-copy">Copy</button><span class="copied" id="sb-out" role="status"></span>
-            </div>
-          </details>
         </div>
 
         <div class="search js-only">
@@ -3099,20 +3087,6 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
   function openContact(){ if(location.hash === "#contact") $("contact").open = true; }
   window.addEventListener("hashchange", openContact);
   openContact();
-
-  /* ---------- short bio ---------- */
-  (function(){
-    var btn = $("sb-copy"), text = $("sb-text"), out = $("sb-out");
-    btn.addEventListener("click", function(){
-      function fallback(){
-        var r = document.createRange(); r.selectNodeContents(text);
-        var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        out.textContent = "Selected. Press Cmd-C to copy.";
-      }
-      try { navigator.clipboard.writeText(text.textContent).then(function(){ out.textContent = "Copied"; }, fallback); }
-      catch(e){ fallback(); }
-    });
-  })();
 
   /* ---------- contact form: honeypot + time trap, relayed via Web3Forms ---------- */
   (function(){
