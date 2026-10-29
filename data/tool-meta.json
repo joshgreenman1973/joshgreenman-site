@@ -1,0 +1,458 @@
+{
+ "https://joshgreenman1973.github.io/all-causes-america/": {
+  "dek": "All-cause U.S. mortality, drawn from CDC’s National Vital Statistics System. 2023 final data.",
+  "title": "How Americans die"
+ },
+ "https://joshgreenman1973.github.io/block-pulse/": {
+  "dek": "",
+  "title": "Block Pulse"
+ },
+ "https://joshgreenman1973.github.io/commuter-rail-compensation/": {
+  "dek": "",
+  "title": "U.S. commuter rail compensation"
+ },
+ "https://joshgreenman1973.github.io/experiments/45-minute-city/": {
+  "dek": "How far can you actually get in New York City in 45 minutes (subway, bus, taxi, bike or on foot) on real schedules, real streets and real traffic, with an accessible-transit view?",
+  "title": "The 45-minute city"
+ },
+ "https://joshgreenman1973.github.io/experiments/city-record-daily/": {
+  "dek": "",
+  "title": "City Record Digest"
+ },
+ "https://joshgreenman1973.github.io/experiments/gun-violence-analysis/": {
+  "dek": "",
+  "title": "U.S. Gun Violence"
+ },
+ "https://joshgreenman1973.github.io/experiments/mamdani-org-chart/": {
+  "dek": "An organizational chart of the Mamdani administration: 183 appointees arranged by who reports to whom, each linked to its source, with 49 departments that open into their own charts.",
+  "title": "The Mamdani administration"
+ },
+ "https://joshgreenman1973.github.io/experiments/mmr-explorer/": {
+  "dek": "Every indicator in New York City’s Mayor’s Management Report, fiscal 2016 through fiscal 2026: explore by topic, compare related indicators, and understand the definitions and sources behind the numbers.",
+  "title": "Report card"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-311-pileup/": {
+  "dek": "One in 20 New York City addresses accounts for just over half of all 311 complaints since 2020. Pick a slice of addresses, see what fills it, map it and look at how fast complaints arrive at the very top.",
+  "title": "Where 311 complaints pile up"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-911-response-times/": {
+  "dek": "",
+  "title": "NYC 911 response times"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-actual-rents/": {
+  "dek": "Asking rents average $3,500. But 57% of NYC rental units are regulated. Here’s what New Yorkers really pay, from NYCHA to market-rate.",
+  "title": "What New Yorkers Actually Pay in Rent"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-apartment-combinations/": {
+  "dek": "Every apartment combination filing in NYC from 2000 to 2020: where owners merged two or more units into one, mapped from Department of Buildings records.",
+  "title": "NYC apartment combinations map"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-bus-tracker/": {
+  "dek": "All Through the Town: every New York City bus on a live map, with weekly speed trends by route since April 2026.",
+  "title": "All Through the Town"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-camera-map/": {
+  "dek": "",
+  "title": "Line of Sight"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-collisions/": {
+  "dek": "",
+  "title": "NYC Traffic Collisions"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-crime-story/": {
+  "dek": "",
+  "title": "The Long Retreat"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-data/transit-showdown/": {
+  "dek": "",
+  "title": "Transit Showdown"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-doe-per-pupil-spending/": {
+  "dek": "",
+  "title": "Per-pupil spending in New York City public schools"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-enrollment/": {
+  "dek": "",
+  "title": "NYC K-12 Enrollment Shifts (1940-2025)"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-equivalents/": {
+  "dek": "One New York City figure at a time, paired with the country, city, army, structure or fleet somewhere else in the world that comes in at about the same number.",
+  "title": "New York City equivalents"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-fleet-chargers/": {
+  "dek": "Every charging site in New York City’s own fleet network, mapped and searchable by address, neighborhood, ZIP code, agency and charger type, with the ones open to the public marked.",
+  "title": "Where city vehicles charge"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-foil-tracker/": {
+  "dek": "",
+  "title": "NYC FOIL Tracker"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-government-map/": {
+  "dek": "",
+  "title": "NYC Government Map"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-guide/": {
+  "dek": "One front door to 116 maps, trackers, explorers and archives built on New York City’s public data.",
+  "title": "New York City, examined"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-housing-dashboard/": {
+  "dek": "Every New York City Council district and community district, measured by the homes it added since 2010, the income-restricted homes the city financed, and the city’s own 2030 housing targets.",
+  "title": "Who builds New York"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-injury-dashboard/": {
+  "dek": "",
+  "title": "NYC Injury Hospitalizations"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-neglected-lots/": {
+  "dek": "",
+  "title": "The lots nobody fixes"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-payroll-browser/": {
+  "dek": "An interactive browser for the NYC Citywide Payroll and MTA payroll datasets: top and lowest earners, overtime, agency spending, and headcount trends.",
+  "title": "NYC Payroll Browser"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-prediction-markets/": {
+  "dek": "",
+  "title": "NY prediction markets tracker"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-prevailing-wage/": {
+  "dek": "Every weekly certified payroll filed with the state Department of Labor for public work in New York City in 2026, set against the city comptroller’s prevailing wage schedule, trade by trade.",
+  "title": "Paid on public work"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-public-art-map/": {
+  "dek": "",
+  "title": "NYC Public Art Map"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-public-vs-private-comp/": {
+  "dek": "",
+  "title": "Public vs Private"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-sightlines/": {
+  "dek": "Which of 16 New York landmarks, and the rising and setting sun, you can see at street level from every street, sidewalk and park in the five boroughs.",
+  "title": "New York Sightlines"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-since-911/": {
+  "dek": "Twenty-five measures of New York City in September 2001 and today, each one linked to a fetched source and a verbatim quote.",
+  "title": "25 ways New York City has changed since 9/11"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-special-ed-spending/": {
+  "dek": "",
+  "title": "New York City special education due process spending tracker"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-super-speeders/": {
+  "dek": "",
+  "title": "NYC Super Speeders"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-traffic/": {
+  "dek": "",
+  "title": "NYC Traffic Pulse"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-water-infrastructure/": {
+  "dek": "",
+  "title": "NYC water infrastructure"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-what-it-costs/": {
+  "dek": "Prices in New York City and its metro area since the start of 2026, compared month for month with the same stretch of 2025. Government sources throughout.",
+  "title": "What New York Costs"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-where-new-york-lives/": {
+  "dek": "New York City’s population density at every census from 1910 to 2020, drawn as a landscape that rises where more people live.",
+  "title": "Where New York lives"
+ },
+ "https://joshgreenman1973.github.io/experiments/vc-two-three-legged-stools/": {
+  "dek": "",
+  "title": "Two- and three-legged stools"
+ },
+ "https://joshgreenman1973.github.io/experiments/world-cities-dots/": {
+  "dek": "",
+  "title": "100 Metro Areas in Dots"
+ },
+ "https://joshgreenman1973.github.io/experiments/world-population-dots/": {
+  "dek": "",
+  "title": "The World in Dots"
+ },
+ "https://joshgreenman1973.github.io/faa-wildlife-strikes/": {
+  "dek": "352,419 wildlife strikes reported to the Federal Aviation Administration since 1990, by species, airport, altitude and what the crew wrote down.",
+  "title": "Struck"
+ },
+ "https://joshgreenman1973.github.io/fda-import-refusals/": {
+  "dek": "525,457 shipments the Food and Drug Administration turned away at the United States border since 2002, searchable by country, firm, product and the statutory charge: including filthy, putrid, or decomposed.",
+  "title": "Refused at the border"
+ },
+ "https://joshgreenman1973.github.io/ginos-rent/": {
+  "dek": "",
+  "title": "Gino’s Pizza and the $25,000 rent"
+ },
+ "https://joshgreenman1973.github.io/japan-lost-property/": {
+  "dek": "4.5 million lost items handed in to Tokyo police in a year, and what happened to each kind. Phones come home. Umbrellas never do.",
+  "title": "Left behind"
+ },
+ "https://joshgreenman1973.github.io/law-growth/": {
+  "dek": "The US Code grew from 1.9 million words in 1926 to 47.4 million in 2023, and by 46 percent since 2000, while Congress passed steadily fewer laws.",
+  "title": "The growing code"
+ },
+ "https://joshgreenman1973.github.io/lihtc-explainer/": {
+  "dek": "A carefully sourced explainer on the Low-Income Housing Tax Credit (LIHTC): its federal cost and the housing it produces, built entirely from HUD, IRS, the Joint Committee on Taxation and GAO.",
+  "title": "The ledger"
+ },
+ "https://joshgreenman1973.github.io/mamdani-appointee-tracker/": {
+  "dek": "",
+  "title": "Mamdani administration personnel tracker"
+ },
+ "https://joshgreenman1973.github.io/movie-theaters-nyc/": {
+  "dek": "",
+  "title": "When the lights went out"
+ },
+ "https://joshgreenman1973.github.io/nba-leaders-horserace/": {
+  "dek": "Four synchronized bar-chart races showing the NBA’s all-time points, rebounds, assists and steals leaders accumulating season by season from 1947 to 2025.",
+  "title": "The Climb · NBA All-Time Leaders Race"
+ },
+ "https://joshgreenman1973.github.io/nyc-311-day/": {
+  "dek": "",
+  "title": "A day on the 311 line"
+ },
+ "https://joshgreenman1973.github.io/nyc-audit-tracker/": {
+  "dek": "",
+  "title": "The audit files"
+ },
+ "https://joshgreenman1973.github.io/nyc-bagels-donuts/": {
+  "dek": "",
+  "title": "Round with holes in it"
+ },
+ "https://joshgreenman1973.github.io/nyc-budget-per-capita/": {
+  "dek": "Twenty-six years of audited New York City spending and revenue, by category, with toggles for population and inflation. Built from the Comptroller’s annual financial reports.",
+  "title": "The New York City ledger"
+ },
+ "https://joshgreenman1973.github.io/nyc-child-density/": {
+  "dek": "",
+  "title": "Where the children went"
+ },
+ "https://joshgreenman1973.github.io/nyc-childcare-map/": {
+  "dek": "",
+  "title": "NYC child care supply map"
+ },
+ "https://joshgreenman1973.github.io/nyc-city-land-map/": {
+  "dek": "An interactive map of the 15,188 tax lots New York City owns or leases, sorted by how ready each site is for housing.",
+  "title": "The city’s own land"
+ },
+ "https://joshgreenman1973.github.io/nyc-civil-service-hiring/": {
+  "dek": "Every list of people who passed a New York City civil service exam, how far down agencies have gone on each, how long lists last, provisional employees and a lookup for any job title or city agency. Rebuilt daily from the city’s own data.",
+  "title": "New York City’s civil service lists"
+ },
+ "https://joshgreenman1973.github.io/nyc-college-map/": {
+  "dek": "",
+  "title": "New York City college campuses"
+ },
+ "https://joshgreenman1973.github.io/nyc-consent-decrees/": {
+  "dek": "A searchable database of the federal and state consent decrees, court-ordered settlements, and monitorships that currently govern New York City agencies.",
+  "title": "Consent decrees on New York City government"
+ },
+ "https://joshgreenman1973.github.io/nyc-council-hearings/": {
+  "dek": "Full-text search across New York City Council hearing transcripts and written testimony. Results come back as exchanges: the question, and the answer.",
+  "title": "New York City Council hearings, searchable"
+ },
+ "https://joshgreenman1973.github.io/nyc-cuisine-map/": {
+  "dek": "",
+  "title": "New York on a plate"
+ },
+ "https://joshgreenman1973.github.io/nyc-day-trips/": {
+  "dek": "Tell us where you live and discover a day trip to another New York City neighborhood: where to eat, what to see and what to do across the five boroughs.",
+  "title": "New York City neighborhood day trips"
+ },
+ "https://joshgreenman1973.github.io/nyc-decisions/": {
+  "dek": "A searchable microscope on New York City public records. Adjudications, audits, complaints, oversight reports, and penalty recommendations from OATH, CCRB, COIB, DOI, Comptroller, Public Advocate, and more.",
+  "title": "The Rest of the Record"
+ },
+ "https://joshgreenman1973.github.io/nyc-demographics-horserace/": {
+  "dek": "An animated bar-chart race of New York City’s population by race and ethnicity from the 1900 census to 2020, built on U.S. Census Bureau figures.",
+  "title": "Who lives here · New York City’s population by race and ethnicity, 1900–2020"
+ },
+ "https://joshgreenman1973.github.io/nyc-district-boundaries/": {
+  "dek": "An interactive map of every significant district boundary in New York City (community boards, council, police precincts, school districts and more) that you can overlay and compare.",
+  "title": "The overlapping city"
+ },
+ "https://joshgreenman1973.github.io/nyc-fire-medical-day/": {
+  "dek": "",
+  "title": "A day on the fire & medical radio"
+ },
+ "https://joshgreenman1973.github.io/nyc-floodnet-map/": {
+  "dek": "Every street flood measured by New York City’s FloodNet sensors since 2020: how deep, how long, where it keeps coming back, and what the record shows at corners watched the whole time.",
+  "title": "Reading the water"
+ },
+ "https://joshgreenman1973.github.io/nyc-foil-helper/": {
+  "dek": "Describe what you want from New York City government in plain language. Get a legally sound Freedom of Information Law (FOIL) request, the right agency to send it to, and a ready-to-file draft.",
+  "title": "NYC Records Request Helper"
+ },
+ "https://joshgreenman1973.github.io/nyc-fully-loaded-budget/": {
+  "dek": "New York City’s budget parks pensions, health insurance and legal payouts in three central accounts. Put that money back on the agencies that incur it and the Police Department costs $11.5 billion, not $6.3 billion.",
+  "title": "The fully loaded budget"
+ },
+ "https://joshgreenman1973.github.io/nyc-green-book/": {
+  "dek": "The City of New York’s official directory, rebuilt and kept current: 2,609 officials, 124 agencies, every phone number one tap away.",
+  "title": "The Greener Book"
+ },
+ "https://joshgreenman1973.github.io/nyc-historic-districts/": {
+  "dek": "An animated map of all 159 New York City historic districts and extensions and the years they were declared, from Brooklyn Heights in 1965 to today.",
+  "title": "The landmarking of New York"
+ },
+ "https://joshgreenman1973.github.io/nyc-horserace-combined/": {
+  "dek": "Two synchronized bar-chart races on one clock: New York City’s population by race and ethnicity, and its foreign-born residents by country of birth, 1900 to 2020.",
+  "title": "A century of New York · Two synchronized population races, 1900–2020"
+ },
+ "https://joshgreenman1973.github.io/nyc-immigration-horserace/": {
+  "dek": "An animated bar-chart race of New York City’s foreign-born population by country of birth from 1900 to 2023. Each wave’s bar fades as it recedes into its American-born later generations.",
+  "title": "Where New York came from · Foreign-born New Yorkers by country of birth, 1900–2023"
+ },
+ "https://joshgreenman1973.github.io/nyc-jacobs-index/": {
+  "dek": "Every New York City block, scored on Jane Jacobs’s four conditions for street life: mixed uses, short blocks, aged buildings and concentration.",
+  "title": "The Jacobs index"
+ },
+ "https://joshgreenman1973.github.io/nyc-landmark-architects/": {
+  "dek": "",
+  "title": "NYC landmark architects"
+ },
+ "https://joshgreenman1973.github.io/nyc-languages/": {
+  "dek": "",
+  "title": "I live in New York City"
+ },
+ "https://joshgreenman1973.github.io/nyc-live-sensors/": {
+  "dek": "What New York City’s public real-time sensors are reporting right now: tide gauges, weather stations, stream gauges, wave buoys, traffic detectors, radar, aircraft transponders, bike docks, the power grid and the subway.",
+  "title": "The city that sensors see (and hear and feel)"
+ },
+ "https://joshgreenman1973.github.io/nyc-mamdani-transcripts/": {
+  "dek": "",
+  "title": "Mamdani administration transcript & press release search"
+ },
+ "https://joshgreenman1973.github.io/nyc-mayor-coverage/": {
+  "dek": "",
+  "title": "Six months, five mayors, one newspaper"
+ },
+ "https://joshgreenman1973.github.io/nyc-misdemeanor-map/": {
+  "dek": "",
+  "title": "‘Small’ Crimes Up Close"
+ },
+ "https://joshgreenman1973.github.io/nyc-neighborhood-density/": {
+  "dek": "",
+  "title": "One in four New York City neighborhoods holds fewer people than it did in 1970"
+ },
+ "https://joshgreenman1973.github.io/nyc-neighborhood-names/": {
+  "dek": "Seventy-nine New York City neighborhood names and the decade each one arrived in The New York Times.",
+  "title": "When a neighborhood got its name"
+ },
+ "https://joshgreenman1973.github.io/nyc-nta-rankings/": {
+  "dek": "All 197 of New York City’s residential neighborhoods, ranked 61 different ways with verifiable government data.",
+  "title": "Every neighborhood, ranked"
+ },
+ "https://joshgreenman1973.github.io/nyc-nypd-officer-profiles/": {
+  "dek": "An interactive explorer of the New York Police Department’s own weekly Officer Profile data: every active officer, their ranks, arrests, medals and sustained discipline.",
+  "title": "The NYPD, officer by officer"
+ },
+ "https://joshgreenman1973.github.io/nyc-on-screen/": {
+  "dek": "A searchable map of where movies and television have filmed in New York City, from the silent era to today. Scrub through a century and watch the camera’s eye move across the city.",
+  "title": "New York City on screen"
+ },
+ "https://joshgreenman1973.github.io/nyc-overdue-reports/": {
+  "dek": "Every report New York City agencies are legally required to publish, and whether they actually did.",
+  "title": "Overdue"
+ },
+ "https://joshgreenman1973.github.io/nyc-pension-dashboard/": {
+  "dek": "An interactive ledger of New York City’s five public pension funds: what they hold, what they owe, what the city pays and what it costs each household. Every figure sourced.",
+  "title": "What New York owes"
+ },
+ "https://joshgreenman1973.github.io/nyc-people-vs-buildings/": {
+  "dek": "A 3D map of New York City. Toggle between residential density (where people live) and built environment density (the physical mass of buildings).",
+  "title": "New York City"
+ },
+ "https://joshgreenman1973.github.io/nyc-playground-explorer/": {
+  "dek": "Where They Can Play (a field guide to every public playground and court in New York City, with real shapes, accessibility, 2025) 26 condition grades, neighborhood density and what’s within a 10- or 20-minute walk.",
+  "title": "Where They Can Play · NYC playgrounds & courts"
+ },
+ "https://joshgreenman1973.github.io/nyc-population-atlas/": {
+  "dek": "",
+  "title": "NEW YORK CITY"
+ },
+ "https://joshgreenman1973.github.io/nyc-population-map/": {
+  "dek": "",
+  "title": "New York City population explorer"
+ },
+ "https://joshgreenman1973.github.io/nyc-religion-map/": {
+  "dek": "",
+  "title": "Houses of worship in New York City"
+ },
+ "https://joshgreenman1973.github.io/nyc-residential-turnover/": {
+  "dek": "",
+  "title": "Where New York City moves"
+ },
+ "https://joshgreenman1973.github.io/nyc-rooftop-solar/": {
+  "dek": "",
+  "title": "New York City rooftop solar, 2002 to 2026"
+ },
+ "https://joshgreenman1973.github.io/nyc-school-time/": {
+  "dek": "",
+  "title": "New York City school time, 2026–27"
+ },
+ "https://joshgreenman1973.github.io/nyc-schools-atlas/": {
+  "dek": "",
+  "title": "NYC schools atlas"
+ },
+ "https://joshgreenman1973.github.io/nyc-senior-density/": {
+  "dek": "",
+  "title": "Where the elders are"
+ },
+ "https://joshgreenman1973.github.io/nyc-settlement-ledger/": {
+  "dek": "A browsable archive of every settled claim against the City of New York: every police-misconduct payout, Rikers death case, sidewalk injury, and school settlement, with amounts, agencies, and years.",
+  "title": "NYC Settlement Ledger"
+ },
+ "https://joshgreenman1973.github.io/nyc-shootings-explorer/": {
+  "dek": "An investigative data record of two decades of shootings in New York City: the long decline, the pandemic surge, the recovery, and how the geography, timing and toll shifted year by year.",
+  "title": "New York City gunfire, 2006–2026"
+ },
+ "https://joshgreenman1973.github.io/nyc-three-eras/": {
+  "dek": "Click a New York City building and see its 1940 tax photo, its 1980s tax photo and the present-day street, side by side.",
+  "title": "Three Eras"
+ },
+ "https://joshgreenman1973.github.io/nyc-vendor-ledger/": {
+  "dek": "Search any company and see every New York City contract action registered to it since fiscal 2011: what was registered and what was paid.",
+  "title": "The vendor ledger"
+ },
+ "https://joshgreenman1973.github.io/nyc-wild-census/": {
+  "dek": "Every wild animal recorded in New York City, mapped from citizen-science and city rescue records. Not pigeons, not rats. The coyotes, seals, owls, foxes and salamanders that share the five boroughs.",
+  "title": "The other New Yorkers"
+ },
+ "https://joshgreenman1973.github.io/nyc-zip-pulse/": {
+  "dek": "A live map of New York City showing what’s happening in every ZIP code right now, normalized by neighborhood size so big neighborhoods don’t always look loudest.",
+  "title": "What’s happening in my ZIP"
+ },
+ "https://joshgreenman1973.github.io/place-name-proposals/": {
+  "dek": "Every geographic name proposal pending before the U.S. Board on Geographic Names, from Quarterly Review Lists 450 to 464. Searchable case files, mapped.",
+  "title": "Under review"
+ },
+ "https://joshgreenman1973.github.io/public-sector-pay/": {
+  "dek": "Side-by-side comparison of contract pay schedules for police officers, firefighters, sanitation workers and transit bus operators in 13 large U.S. cities, drawn from official collective bargaining agreements and city pay schedules.",
+  "title": "Public sector pay across 13 large U.S. cities"
+ },
+ "https://joshgreenman1973.github.io/rotor-motion/": {
+  "dek": "Live helicopter traffic over New York City, drawn on the FAA New York Helicopter Route Chart from real-time ADS-B data.",
+  "title": "Rotor Motion"
+ },
+ "https://joshgreenman1973.github.io/the-waiting-city/": {
+  "dek": "How many New Yorkers are standing in a line the city controls, and how long each line is. A registry of 77 lines, each measured in the agency’s own terms.",
+  "title": "The Waiting City"
+ },
+ "https://joshgreenman1973.github.io/us-captive-wildlife-atlas/": {
+  "dek": "",
+  "title": "U.S. Wildlife Atlas"
+ },
+ "https://joshgreenman1973.github.io/violent-death-america/": {
+  "dek": "Violent death in the United States, drawn from the CDC’s National Violent Death Reporting System.",
+  "title": "Violent death in America"
+ },
+ "https://joshgreenman1973.github.io/what-new-york-thinks/": {
+  "dek": "Every question in independent polls of New York City and New York State in 2026, searchable and sortable, with live prediction-market prices on New York politics.",
+  "title": "What New York Thinks"
+ },
+ "https://joshgreenman1973.github.io/young-child-geography/": {
+  "dek": "",
+  "title": "The shrinking pie"
+ }
+}

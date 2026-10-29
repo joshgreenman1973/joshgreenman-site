@@ -144,6 +144,12 @@ details summary:hover{color:var(--fg)}
 .it .t a{text-wrap:pretty}
 .it .x{display:block;font-size:.9rem;color:var(--mute);margin-top:.1rem}
 .it.tool .t a{font-weight:500}
+.it.xtra .t a{font-weight:400}
+/* the tools beyond the featured ones fold into one line per year */
+.xmore{padding:.5rem 0;border-bottom:1px solid var(--line);font:.875rem var(--sans)}
+.xmore button{background:none;border:0;padding:0;cursor:pointer;color:var(--mute);font:inherit;--k:var(--k-tool)}
+.xmore button:hover{color:var(--fg)}
+.xmore button::before{content:"";display:inline-block;width:.45em;height:.45em;border-radius:50%;background:var(--k);margin-right:.5em;vertical-align:.1em}
 .nw{font:.8rem var(--sans);color:var(--accent);margin-left:.45em;white-space:nowrap}
 mark{background:var(--mark);color:inherit;padding:0 .05em}
 .more{font:.9rem/1.5 var(--sans);margin:2rem 0 0;color:var(--mute);max-width:44rem}
@@ -187,7 +193,7 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
           <details>
             <summary>More</summary>
             <p>Before that, speechwriting and policy in New York and Washington. Years ago I wrote headlines for <a href="https://theonion.com/" target="_blank" rel="noopener">The Onion</a>. I publish <a href="https://joshgreenman.substack.com/" target="_blank" rel="noopener">Thoughts About Stuff</a> on Substack. I live in Brooklyn with my wife and our two daughters.</p>
-            <p>Lately I’ve also been building small data tools about New York: maps, trackers, explainers.</p>
+            <p>Lately I’ve been making data tools about New York too. They’re mixed in with the writing.</p>
           </details>
           <p class="to-contact"><a href="#contact">Links and contact</a></p>
           <details class="sbio">
@@ -249,7 +255,7 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
       <div class="list" id="list">
         <!-- AUTO:ARCHIVE START -->
         <section class="yg" data-year="2026">
-          <h2 class="yh"><span class="yy">2026</span> <span class="yn">27 items</span></h2>
+          <h2 class="yh"><span class="yy">2026</span> <span class="yn">137 items</span></h2>
           <ul>
             <li class="it tool" data-d="2026-10-22" data-o="tool">
               <span class="d">Oct. 22</span>
@@ -271,14 +277,229 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
               <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-311-pileup/" target="_blank" rel="noopener" data-shot="shots/nyc-311-pileup.jpg">Where 311 complaints pile up</a><span class="x">One in 20 New York City addresses accounts for just over half of all 311 complaints since 2020. Pick a slice of addresses, see what fills it, map it and look at how fast complaints arrive at the very top.</span></span>
               <span class="o">Tool</span>
             </li>
+            <li class="it tool xtra" data-d="2026-10-07" data-o="tool">
+              <span class="d">Oct. 7</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-fleet-chargers/" target="_blank" rel="noopener" data-shot="shots/nyc-fleet-chargers.jpg">Where city vehicles charge</a><span class="x dek" hidden>Every charging site in New York City’s own fleet network, mapped and searchable by address, neighborhood, ZIP code, agency and charger type, with the ones open to the public marked.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-10-07" data-o="tool">
+              <span class="d">Oct. 7</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-where-new-york-lives/" target="_blank" rel="noopener" data-shot="shots/nyc-where-new-york-lives.jpg">Where New York lives</a><span class="x dek" hidden>New York City’s population density at every census from 1910 to 2020, drawn as a landscape that rises where more people live.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-10-07" data-o="tool">
+              <span class="d">Oct. 7</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-sightlines/" target="_blank" rel="noopener" data-shot="shots/nyc-sightlines.jpg">New York Sightlines</a><span class="x dek" hidden>Which of 16 New York landmarks, and the rising and setting sun, you can see at street level from every street, sidewalk and park in the five boroughs.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-09-24" data-o="tool">
+              <span class="d">Sept. 24</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-neighborhood-names/" target="_blank" rel="noopener" data-shot="shots/nyc-neighborhood-names.jpg">When a neighborhood got its name</a><span class="x dek" hidden>Seventy-nine New York City neighborhood names and the decade each one arrived in The New York Times.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-09-17" data-o="tool">
+              <span class="d">Sept. 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/mmr-explorer/" target="_blank" rel="noopener">Report card</a><span class="x dek" hidden>Every indicator in New York City’s Mayor’s Management Report, fiscal 2016 through fiscal 2026: explore by topic, compare related indicators, and understand the definitions and sources behind the numbers.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-09-06" data-o="tool">
+              <span class="d">Sept. 6</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-since-911/" target="_blank" rel="noopener">25 ways New York City has changed since 9/11</a><span class="x dek" hidden>Twenty-five measures of New York City in September 2001 and today, each one linked to a fetched source and a verbatim quote.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-09-05" data-o="tool">
+              <span class="d">Sept. 5</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/the-waiting-city/" target="_blank" rel="noopener">The Waiting City</a><span class="x dek" hidden>How many New Yorkers are standing in a line the city controls, and how long each line is. A registry of 77 lines, each measured in the agency’s own terms.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-09-03" data-o="tool">
+              <span class="d">Sept. 3</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-equivalents/" target="_blank" rel="noopener">New York City equivalents</a><span class="x dek" hidden>One New York City figure at a time, paired with the country, city, army, structure or fleet somewhere else in the world that comes in at about the same number.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-09-01" data-o="tool">
+              <span class="d">Sept. 1</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-neglected-lots/" target="_blank" rel="noopener">The lots nobody fixes</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-09-01" data-o="tool">
+              <span class="d">Sept. 1</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-prevailing-wage/" target="_blank" rel="noopener">Paid on public work</a><span class="x dek" hidden>Every weekly certified payroll filed with the state Department of Labor for public work in New York City in 2026, set against the city comptroller’s prevailing wage schedule, trade by trade.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-28" data-o="tool">
+              <span class="d">Aug. 28</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-neighborhood-density/" target="_blank" rel="noopener">One in four New York City neighborhoods holds fewer people than it did in 1970</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-27" data-o="tool">
+              <span class="d">Aug. 27</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-council-hearings/" target="_blank" rel="noopener">New York City Council hearings, searchable</a><span class="x dek" hidden>Full-text search across New York City Council hearing transcripts and written testimony. Results come back as exchanges: the question, and the answer.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-26" data-o="tool">
+              <span class="d">Aug. 26</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-fully-loaded-budget/" target="_blank" rel="noopener">The fully loaded budget</a><span class="x dek" hidden>New York City’s budget parks pensions, health insurance and legal payouts in three central accounts. Put that money back on the agencies that incur it and the Police Department costs $11.5 billion, not $6.3 billion.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-25" data-o="tool">
+              <span class="d">Aug. 25</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/vc-two-three-legged-stools/" target="_blank" rel="noopener">Two- and three-legged stools</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-23" data-o="tool">
+              <span class="d">Aug. 23</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-guide/" target="_blank" rel="noopener">New York City, examined</a><span class="x dek" hidden>One front door to 116 maps, trackers, explorers and archives built on New York City’s public data.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-17" data-o="tool">
+              <span class="d">Aug. 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/japan-lost-property/" target="_blank" rel="noopener">Left behind</a><span class="x dek" hidden>4.5 million lost items handed in to Tokyo police in a year, and what happened to each kind. Phones come home. Umbrellas never do.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-17" data-o="tool">
+              <span class="d">Aug. 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/fda-import-refusals/" target="_blank" rel="noopener">Refused at the border</a><span class="x dek" hidden>525,457 shipments the Food and Drug Administration turned away at the United States border since 2002, searchable by country, firm, product and the statutory charge: including filthy, putrid, or decomposed.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-17" data-o="tool">
+              <span class="d">Aug. 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/place-name-proposals/" target="_blank" rel="noopener">Under review</a><span class="x dek" hidden>Every geographic name proposal pending before the U.S. Board on Geographic Names, from Quarterly Review Lists 450 to 464. Searchable case files, mapped.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-16" data-o="tool">
+              <span class="d">Aug. 16</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/faa-wildlife-strikes/" target="_blank" rel="noopener">Struck</a><span class="x dek" hidden>352,419 wildlife strikes reported to the Federal Aviation Administration since 1990, by species, airport, altitude and what the crew wrote down.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-13" data-o="tool">
+              <span class="d">Aug. 13</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-camera-map/" target="_blank" rel="noopener">Line of Sight</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-08-09" data-o="tool">
+              <span class="d">Aug. 9</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-budget-per-capita/" target="_blank" rel="noopener">The New York City ledger</a><span class="x dek" hidden>Twenty-six years of audited New York City spending and revenue, by category, with toggles for population and inflation. Built from the Comptroller’s annual financial reports.</span></span>
+              <span class="o">Tool</span>
+            </li>
             <li class="it" data-d="2026-08-08" data-o="ss">
               <span class="d">Aug. 8</span>
               <span class="t"><a href="https://joshgreenman.substack.com/p/how-mamdanis-doing-one-mans-assessment" target="_blank" rel="noopener">How Mamdani’s doing: One man’s assessment</a><span class="x dek" hidden>Getting a read on his mayoralty 220 days in</span></span>
               <span class="o">Substack</span>
             </li>
+            <li class="it tool xtra" data-d="2026-08-02" data-o="tool">
+              <span class="d">Aug. 2</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-nta-rankings/" target="_blank" rel="noopener">Every neighborhood, ranked</a><span class="x dek" hidden>All 197 of New York City’s residential neighborhoods, ranked 61 different ways with verifiable government data.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-29" data-o="tool">
+              <span class="d">July 29</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-pension-dashboard/" target="_blank" rel="noopener">What New York owes</a><span class="x dek" hidden>An interactive ledger of New York City’s five public pension funds: what they hold, what they owe, what the city pays and what it costs each household. Every figure sourced.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-29" data-o="tool">
+              <span class="d">July 29</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/mamdani-org-chart/" target="_blank" rel="noopener">The Mamdani administration</a><span class="x dek" hidden>An organizational chart of the Mamdani administration: 183 appointees arranged by who reports to whom, each linked to its source, with 49 departments that open into their own charts.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-27" data-o="tool">
+              <span class="d">July 27</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-audit-tracker/" target="_blank" rel="noopener">The audit files</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-23" data-o="tool">
+              <span class="d">July 23</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-green-book/" target="_blank" rel="noopener">The Greener Book</a><span class="x dek" hidden>The City of New York’s official directory, rebuilt and kept current: 2,609 officials, 124 agencies, every phone number one tap away.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-20" data-o="tool">
+              <span class="d">July 20</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-wild-census/" target="_blank" rel="noopener">The other New Yorkers</a><span class="x dek" hidden>Every wild animal recorded in New York City, mapped from citizen-science and city rescue records. Not pigeons, not rats. The coyotes, seals, owls, foxes and salamanders that share the five boroughs.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-20" data-o="tool">
+              <span class="d">July 20</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/law-growth/" target="_blank" rel="noopener">The growing code</a><span class="x dek" hidden>The US Code grew from 1.9 million words in 1926 to 47.4 million in 2023, and by 46 percent since 2000, while Congress passed steadily fewer laws.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-19" data-o="tool">
+              <span class="d">July 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-live-sensors/" target="_blank" rel="noopener">The city that sensors see (and hear and feel)</a><span class="x dek" hidden>What New York City’s public real-time sensors are reporting right now: tide gauges, weather stations, stream gauges, wave buoys, traffic detectors, radar, aircraft transponders, bike docks, the power grid and the subway.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-17" data-o="tool">
+              <span class="d">July 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/lihtc-explainer/" target="_blank" rel="noopener">The ledger</a><span class="x dek" hidden>A carefully sourced explainer on the Low-Income Housing Tax Credit (LIHTC): its federal cost and the housing it produces, built entirely from HUD, IRS, the Joint Committee on Taxation and GAO.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-15" data-o="tool">
+              <span class="d">July 15</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-district-boundaries/" target="_blank" rel="noopener">The overlapping city</a><span class="x dek" hidden>An interactive map of every significant district boundary in New York City (community boards, council, police precincts, school districts and more) that you can overlay and compare.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-13" data-o="tool">
+              <span class="d">July 13</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-historic-districts/" target="_blank" rel="noopener">The landmarking of New York</a><span class="x dek" hidden>An animated map of all 159 New York City historic districts and extensions and the years they were declared, from Brooklyn Heights in 1965 to today.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-13" data-o="tool">
+              <span class="d">July 13</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-civil-service-hiring/" target="_blank" rel="noopener">New York City’s civil service lists</a><span class="x dek" hidden>Every list of people who passed a New York City civil service exam, how far down agencies have gone on each, how long lists last, provisional employees and a lookup for any job title or city agency. Rebuilt daily from the city’s own data.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-12" data-o="tool">
+              <span class="d">July 12</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-population-atlas/" target="_blank" rel="noopener">New York City population atlas</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-11" data-o="tool">
+              <span class="d">July 11</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-overdue-reports/" target="_blank" rel="noopener">Overdue</a><span class="x dek" hidden>Every report New York City agencies are legally required to publish, and whether they actually did.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-10" data-o="tool">
+              <span class="d">July 10</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-jacobs-index/" target="_blank" rel="noopener">The Jacobs index</a><span class="x dek" hidden>Every New York City block, scored on Jane Jacobs’s four conditions for street life: mixed uses, short blocks, aged buildings and concentration.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-10" data-o="tool">
+              <span class="d">July 10</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-vendor-ledger/" target="_blank" rel="noopener">The vendor ledger</a><span class="x dek" hidden>Search any company and see every New York City contract action registered to it since fiscal 2011: what was registered and what was paid.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-07" data-o="tool">
+              <span class="d">July 7</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-nypd-officer-profiles/" target="_blank" rel="noopener">The NYPD, officer by officer</a><span class="x dek" hidden>An interactive explorer of the New York Police Department’s own weekly Officer Profile data: every active officer, their ranks, arrests, medals and sustained discipline.</span></span>
+              <span class="o">Tool</span>
+            </li>
             <li class="it tool" data-d="2026-07-06" data-o="tool">
               <span class="d">July 6</span>
               <span class="t"><a href="https://joshgreenman1973.github.io/nyc-history-timeline/" target="_blank" rel="noopener" data-shot="shots/nyc-history-timeline.jpg">New York, in Time</a><span class="x">An interactive history of New York, from the Lenape to the present.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-06" data-o="tool">
+              <span class="d">July 6</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-childcare-map/" target="_blank" rel="noopener">NYC child care supply map</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-06" data-o="tool">
+              <span class="d">July 6</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-city-land-map/" target="_blank" rel="noopener">The city’s own land</a><span class="x dek" hidden>An interactive map of the 15,188 tax lots New York City owns or leases, sorted by how ready each site is for housing.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-05" data-o="tool">
+              <span class="d">July 5</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-mayor-coverage/" target="_blank" rel="noopener">Six months, five mayors, one newspaper</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-02" data-o="tool">
+              <span class="d">July 2</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-311-day/" target="_blank" rel="noopener">A day on the 311 line</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-07-01" data-o="tool">
+              <span class="d">July 1</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-fire-medical-day/" target="_blank" rel="noopener">A day on the fire &amp; medical radio</a></span>
               <span class="o">Tool</span>
             </li>
             <li class="it tool" data-d="2026-06-30" data-o="tool">
@@ -286,10 +507,65 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
               <span class="t"><a href="https://joshgreenman1973.github.io/nyc-precinct-day/" target="_blank" rel="noopener" data-shot="shots/nyc-precinct-day.jpg">A day on the police radio</a><span class="x">Pick a precinct and a day and see what the 911 system logged, hour by hour.</span></span>
               <span class="o">Tool</span>
             </li>
+            <li class="it tool xtra" data-d="2026-06-30" data-o="tool">
+              <span class="d">June 30</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-shootings-explorer/" target="_blank" rel="noopener">New York City gunfire, 2006–2026</a><span class="x dek" hidden>An investigative data record of two decades of shootings in New York City: the long decline, the pandemic surge, the recovery, and how the geography, timing and toll shifted year by year.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-30" data-o="tool">
+              <span class="d">June 30</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-floodnet-map/" target="_blank" rel="noopener">Reading the water</a><span class="x dek" hidden>Every street flood measured by New York City’s FloodNet sensors since 2020: how deep, how long, where it keeps coming back, and what the record shows at corners watched the whole time.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-29" data-o="tool">
+              <span class="d">June 29</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-911-response-times/" target="_blank" rel="noopener">NYC 911 response times</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-29" data-o="tool">
+              <span class="d">June 29</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/movie-theaters-nyc/" target="_blank" rel="noopener">When the lights went out</a></span>
+              <span class="o">Tool</span>
+            </li>
             <li class="it" data-d="2026-06-25" data-o="vc">
               <span class="d">June 25</span>
               <span class="t"><a href="https://www.vitalcitynyc.org/darializa-avila-chevalier-claire-valdez-brad-lander-mamdani/" target="_blank" rel="noopener">Darializa Avila Chevalier, Claire Valdez, Brad Lander, Zohran Mamdani and New York</a><span class="x dek" hidden>What to make of this week’s Congressional primaries</span></span>
               <span class="o">Vital City</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-21" data-o="tool">
+              <span class="d">June 21</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-residential-turnover/" target="_blank" rel="noopener">Where New York City moves</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-19" data-o="tool">
+              <span class="d">June 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-rooftop-solar/" target="_blank" rel="noopener">New York City rooftop solar, 2002 to 2026</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-19" data-o="tool">
+              <span class="d">June 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-horserace-combined/" target="_blank" rel="noopener">A century of New York</a><span class="x dek" hidden>Two synchronized bar-chart races on one clock: New York City’s population by race and ethnicity, and its foreign-born residents by country of birth, 1900 to 2020.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-19" data-o="tool">
+              <span class="d">June 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-immigration-horserace/" target="_blank" rel="noopener">Where New York came from</a><span class="x dek" hidden>An animated bar-chart race of New York City’s foreign-born population by country of birth from 1900 to 2023. Each wave’s bar fades as it recedes into its American-born later generations.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-19" data-o="tool">
+              <span class="d">June 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-demographics-horserace/" target="_blank" rel="noopener">Who lives here</a><span class="x dek" hidden>An animated bar-chart race of New York City’s population by race and ethnicity from the 1900 census to 2020, built on U.S. Census Bureau figures.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-19" data-o="tool">
+              <span class="d">June 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-cuisine-map/" target="_blank" rel="noopener">New York on a plate</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-18" data-o="tool">
+              <span class="d">June 18</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nba-leaders-horserace/" target="_blank" rel="noopener">The Climb</a><span class="x dek" hidden>Four synchronized bar-chart races showing the NBA’s all-time points, rebounds, assists and steals leaders accumulating season by season from 1947 to 2025.</span></span>
+              <span class="o">Tool</span>
             </li>
             <li class="it tool" data-d="2026-06-11" data-o="tool">
               <span class="d">June 11</span>
@@ -301,14 +577,124 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
               <span class="t"><a href="https://joshgreenman1973.github.io/nyc-everything-map/" target="_blank" rel="noopener" data-shot="shots/nyc-everything-map.jpg">The Everything Map</a><span class="x">Click any spot in the city and get a full report on it: neighborhood, districts, representatives and more.</span></span>
               <span class="o">Tool</span>
             </li>
+            <li class="it tool xtra" data-d="2026-06-09" data-o="tool">
+              <span class="d">June 9</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-foil-helper/" target="_blank" rel="noopener">NYC Records Request Helper</a><span class="x dek" hidden>Describe what you want from New York City government in plain language. Get a legally sound Freedom of Information Law (FOIL) request, the right agency to send it to, and a ready-to-file draft.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-09" data-o="tool">
+              <span class="d">June 9</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/mamdani-appointee-tracker/" target="_blank" rel="noopener">Mamdani administration personnel tracker</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-07" data-o="tool">
+              <span class="d">June 7</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-playground-explorer/" target="_blank" rel="noopener">Where They Can Play</a><span class="x dek" hidden>Where They Can Play (a field guide to every public playground and court in New York City, with real shapes, accessibility, 2025) 26 condition grades, neighborhood density and what’s within a 10- or 20-minute walk.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-06-06" data-o="tool">
+              <span class="d">June 6</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/rotor-motion/" target="_blank" rel="noopener">Rotor Motion</a><span class="x dek" hidden>Live helicopter traffic over New York City, drawn on the FAA New York Helicopter Route Chart from real-time ADS-B data.</span></span>
+              <span class="o">Tool</span>
+            </li>
             <li class="it tool" data-d="2026-06-05" data-o="tool">
               <span class="d">June 5</span>
               <span class="t"><a href="https://joshgreenman1973.github.io/nyc-harbor-traffic/" target="_blank" rel="noopener" data-shot="shots/nyc-harbor-traffic.jpg">Harbor Motion</a><span class="x">A live map of the ships, ferries and tugs moving through New York Harbor.</span></span>
               <span class="o">Tool</span>
             </li>
+            <li class="it tool xtra" data-d="2026-06-05" data-o="tool">
+              <span class="d">June 5</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/block-pulse/" target="_blank" rel="noopener">Block Pulse</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-27" data-o="tool">
+              <span class="d">May 27</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-day-trips/" target="_blank" rel="noopener">New York City neighborhood day trips</a><span class="x dek" hidden>Tell us where you live and discover a day trip to another New York City neighborhood: where to eat, what to see and what to do across the five boroughs.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-22" data-o="tool">
+              <span class="d">May 22</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-misdemeanor-map/" target="_blank" rel="noopener">‘Small’ Crimes Up Close</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-21" data-o="tool">
+              <span class="d">May 21</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-on-screen/" target="_blank" rel="noopener">New York City on screen</a><span class="x dek" hidden>A searchable map of where movies and television have filmed in New York City, from the silent era to today. Scrub through a century and watch the camera’s eye move across the city.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-21" data-o="tool">
+              <span class="d">May 21</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-three-eras/" target="_blank" rel="noopener">Three Eras</a><span class="x dek" hidden>Click a New York City building and see its 1940 tax photo, its 1980s tax photo and the present-day street, side by side.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-21" data-o="tool">
+              <span class="d">May 21</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-landmark-architects/" target="_blank" rel="noopener">NYC landmark architects</a></span>
+              <span class="o">Tool</span>
+            </li>
             <li class="it tool" data-d="2026-05-20" data-o="tool">
               <span class="d">May 20</span>
               <span class="t"><a href="https://joshgreenman1973.github.io/nyc-grid-pulse/" target="_blank" rel="noopener" data-shot="shots/nyc-grid-pulse.jpg">NYC Grid Pulse</a><span class="x">New York’s electricity in real time: demand, supply and price, from the grid operator.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-20" data-o="tool">
+              <span class="d">May 20</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-college-map/" target="_blank" rel="noopener">New York City college campuses</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-17" data-o="tool">
+              <span class="d">May 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-consent-decrees/" target="_blank" rel="noopener">Consent decrees on New York City government</a><span class="x dek" hidden>A searchable database of the federal and state consent decrees, court-ordered settlements, and monitorships that currently govern New York City agencies.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-16" data-o="tool">
+              <span class="d">May 16</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/commuter-rail-compensation/" target="_blank" rel="noopener">U.S. commuter rail compensation</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-15" data-o="tool">
+              <span class="d">May 15</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-population-map/" target="_blank" rel="noopener">New York City population explorer</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-14" data-o="tool">
+              <span class="d">May 14</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-zip-pulse/" target="_blank" rel="noopener">What’s happening in my ZIP</a><span class="x dek" hidden>A live map of New York City showing what’s happening in every ZIP code right now, normalized by neighborhood size so big neighborhoods don’t always look loudest.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-12" data-o="tool">
+              <span class="d">May 12</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-religion-map/" target="_blank" rel="noopener">Houses of worship in New York City</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-08" data-o="tool">
+              <span class="d">May 8</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-decisions/" target="_blank" rel="noopener">The Rest of the Record</a><span class="x dek" hidden>A searchable microscope on New York City public records. Adjudications, audits, complaints, oversight reports, and penalty recommendations from OATH, CCRB, COIB, DOI, Comptroller, Public Advocate, and more.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-08" data-o="tool">
+              <span class="d">May 8</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/us-captive-wildlife-atlas/" target="_blank" rel="noopener">U.S. Wildlife Atlas</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-05" data-o="tool">
+              <span class="d">May 5</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/public-sector-pay/" target="_blank" rel="noopener">Public sector pay across 13 large U.S. cities</a><span class="x dek" hidden>Side-by-side comparison of contract pay schedules for police officers, firefighters, sanitation workers and transit bus operators in 13 large U.S. cities, drawn from official collective bargaining agreements and city pay schedules.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-04" data-o="tool">
+              <span class="d">May 4</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-prediction-markets/" target="_blank" rel="noopener">NY prediction markets tracker</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-04" data-o="tool">
+              <span class="d">May 4</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-people-vs-buildings/" target="_blank" rel="noopener">People vs. buildings</a><span class="x dek" hidden>A 3D map of New York City. Toggle between residential density (where people live) and built environment density (the physical mass of buildings).</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-05-01" data-o="tool">
+              <span class="d">May 1</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-mamdani-transcripts/" target="_blank" rel="noopener">Mamdani administration transcript &amp; press release search</a></span>
               <span class="o">Tool</span>
             </li>
             <li class="it tool" data-d="2026-04-30" data-o="tool">
@@ -321,9 +707,39 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
               <span class="t"><a href="https://joshgreenman1973.github.io/nyc-open-data-explorer/" target="_blank" rel="noopener" data-shot="shots/nyc-open-data-explorer.jpg">Open Data explorer</a><span class="x">3,000-plus city datasets, mapped and searchable in plain English.</span></span>
               <span class="o">Tool</span>
             </li>
+            <li class="it tool xtra" data-d="2026-04-29" data-o="tool">
+              <span class="d">April 29</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-school-time/" target="_blank" rel="noopener">New York City school time, 2026–27</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-27" data-o="tool">
+              <span class="d">April 27</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-senior-density/" target="_blank" rel="noopener">Where the elders are</a></span>
+              <span class="o">Tool</span>
+            </li>
             <li class="it tool" data-d="2026-04-25" data-o="tool">
               <span class="d">April 25</span>
               <span class="t"><a href="https://joshgreenman1973.github.io/foreign-born-map/" target="_blank" rel="noopener" data-shot="shots/foreign-born-map.jpg">Foreign-born America</a><span class="x">Where America’s immigrants live, county by county, by country of origin.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-25" data-o="tool">
+              <span class="d">April 25</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-payroll-browser/" target="_blank" rel="noopener">NYC Payroll Browser</a><span class="x dek" hidden>An interactive browser for the NYC Citywide Payroll and MTA payroll datasets: top and lowest earners, overtime, agency spending, and headcount trends.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-24" data-o="tool">
+              <span class="d">April 24</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-data/transit-showdown/" target="_blank" rel="noopener">Transit Showdown</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-24" data-o="tool">
+              <span class="d">April 24</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-super-speeders/" target="_blank" rel="noopener">NYC Super Speeders</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-24" data-o="tool">
+              <span class="d">April 24</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-child-density/" target="_blank" rel="noopener">Where the children went</a></span>
               <span class="o">Tool</span>
             </li>
             <li class="it" data-d="2026-04-23" data-o="ss">
@@ -331,10 +747,150 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
               <span class="t"><a href="https://joshgreenman.substack.com/p/thinking-about-paris-and-new-york" target="_blank" rel="noopener">Thinking about Paris and New York</a><span class="x dek" hidden>What should we envy about the French capital?</span></span>
               <span class="o">Substack</span>
             </li>
+            <li class="it tool xtra" data-d="2026-04-23" data-o="tool">
+              <span class="d">April 23</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-schools-atlas/" target="_blank" rel="noopener">NYC schools atlas</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-23" data-o="tool">
+              <span class="d">April 23</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-bagels-donuts/" target="_blank" rel="noopener">Round with holes in it</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-21" data-o="tool">
+              <span class="d">April 21</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/young-child-geography/" target="_blank" rel="noopener">The shrinking pie</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-21" data-o="tool">
+              <span class="d">April 21</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/ginos-rent/" target="_blank" rel="noopener">Gino’s Pizza and the $25,000 rent</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-19" data-o="tool">
+              <span class="d">April 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-doe-per-pupil-spending/" target="_blank" rel="noopener">Per-pupil spending in New York City public schools</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-18" data-o="tool">
+              <span class="d">April 18</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-public-vs-private-comp/" target="_blank" rel="noopener">Public vs Private</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-18" data-o="tool">
+              <span class="d">April 18</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-settlement-ledger/" target="_blank" rel="noopener">NYC Settlement Ledger</a><span class="x dek" hidden>A browsable archive of every settled claim against the City of New York: every police-misconduct payout, Rikers death case, sidewalk injury, and school settlement, with amounts, agencies, and years.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-17" data-o="tool">
+              <span class="d">April 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-special-ed-spending/" target="_blank" rel="noopener">New York City special education due process spending tracker</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-17" data-o="tool">
+              <span class="d">April 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/all-causes-america/" target="_blank" rel="noopener">How Americans die</a><span class="x dek" hidden>All-cause U.S. mortality, drawn from CDC’s National Vital Statistics System. 2023 final data.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-17" data-o="tool">
+              <span class="d">April 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/violent-death-america/" target="_blank" rel="noopener">Violent death in America</a><span class="x dek" hidden>Violent death in the United States, drawn from the CDC’s National Violent Death Reporting System.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-15" data-o="tool">
+              <span class="d">April 15</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-apartment-combinations/" target="_blank" rel="noopener">NYC apartment combinations map</a><span class="x dek" hidden>Every apartment combination filing in NYC from 2000 to 2020: where owners merged two or more units into one, mapped from Department of Buildings records.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-04-05" data-o="tool">
+              <span class="d">April 5</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-government-map/" target="_blank" rel="noopener">NYC Government Map</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-30" data-o="tool">
+              <span class="d">March 30</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-water-infrastructure/" target="_blank" rel="noopener">NYC water infrastructure</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-29" data-o="tool">
+              <span class="d">March 29</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/nyc-languages/" target="_blank" rel="noopener">I live in New York City</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-20" data-o="tool">
+              <span class="d">March 20</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/45-minute-city/" target="_blank" rel="noopener">The 45-minute city</a><span class="x dek" hidden>How far can you actually get in New York City in 45 minutes (subway, bus, taxi, bike or on foot) on real schedules, real streets and real traffic, with an accessible-transit view?</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-20" data-o="tool">
+              <span class="d">March 20</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-crime-story/" target="_blank" rel="noopener">The Long Retreat</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-19" data-o="tool">
+              <span class="d">March 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-collisions/" target="_blank" rel="noopener">NYC Traffic Collisions</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-19" data-o="tool">
+              <span class="d">March 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-traffic/" target="_blank" rel="noopener">NYC Traffic Pulse</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-19" data-o="tool">
+              <span class="d">March 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-foil-tracker/" target="_blank" rel="noopener">NYC FOIL Tracker</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-19" data-o="tool">
+              <span class="d">March 19</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-actual-rents/" target="_blank" rel="noopener">What New Yorkers Actually Pay in Rent</a><span class="x dek" hidden>Asking rents average $3,500. But 57% of NYC rental units are regulated. Here’s what New Yorkers really pay, from NYCHA to market-rate.</span></span>
+              <span class="o">Tool</span>
+            </li>
             <li class="it" data-d="2026-03-18" data-o="ss">
               <span class="d">March 18</span>
               <span class="t"><a href="https://joshgreenman.substack.com/p/psst-have-you-heard-about-ai" target="_blank" rel="noopener">Psst, have you heard about AI?</a><span class="x dek" hidden>Some experiments worth sharing</span></span>
               <span class="o">Substack</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-18" data-o="tool">
+              <span class="d">March 18</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-bus-tracker/" target="_blank" rel="noopener">All Through the Town</a><span class="x dek" hidden>All Through the Town: every New York City bus on a live map, with weekly speed trends by route since April 2026.</span></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-18" data-o="tool">
+              <span class="d">March 18</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-enrollment/" target="_blank" rel="noopener">NYC K-12 Enrollment Shifts (1940-2025)</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-17" data-o="tool">
+              <span class="d">March 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/gun-violence-analysis/" target="_blank" rel="noopener">U.S. Gun Violence</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-17" data-o="tool">
+              <span class="d">March 17</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-injury-dashboard/" target="_blank" rel="noopener">NYC Injury Hospitalizations</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-16" data-o="tool">
+              <span class="d">March 16</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/nyc-public-art-map/" target="_blank" rel="noopener">NYC Public Art Map</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-15" data-o="tool">
+              <span class="d">March 15</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/city-record-daily/" target="_blank" rel="noopener">City Record Digest</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-14" data-o="tool">
+              <span class="d">March 14</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/world-cities-dots/" target="_blank" rel="noopener">100 Metro Areas in Dots</a></span>
+              <span class="o">Tool</span>
+            </li>
+            <li class="it tool xtra" data-d="2026-03-14" data-o="tool">
+              <span class="d">March 14</span>
+              <span class="t"><a href="https://joshgreenman1973.github.io/experiments/world-population-dots/" target="_blank" rel="noopener">The World in Dots</a></span>
+              <span class="o">Tool</span>
             </li>
             <li class="it tool" data-d="2026-03-13" data-o="tool">
               <span class="d">March 13</span>
@@ -2240,7 +2796,7 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
         </section>
         <!-- AUTO:ARCHIVE END -->
       </div>
-      <p class="more">Summaries and archived copies of the older pieces are on their own pages: <a href="archive/daily-news.html">Daily News</a>, <a href="archive/new-york-sun.html">The New York Sun</a>, <a href="archive/washington-post.html">The Washington Post</a>. The full portfolio is on <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">Authory</a>, and every tool is in the <a href="https://joshgreenman1973.github.io/experiments/projects.html" target="_blank" rel="noopener">catalogue</a>.</p>
+      <p class="more">I kept copies of the old ones, with short summaries, on separate pages for the <a href="archive/daily-news.html">Daily News</a>, <a href="archive/new-york-sun.html">The New York Sun</a> and <a href="archive/washington-post.html">The Washington Post</a>. <a href="https://authory.com/JoshGreenman" target="_blank" rel="noopener">Authory</a> has the whole portfolio. The tools also have their own <a href="https://joshgreenman1973.github.io/experiments/projects.html" target="_blank" rel="noopener">catalogue</a>.</p>
       <div class="otd" id="otd" hidden></div>
     </main>
 
@@ -2265,9 +2821,25 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
     var a = li.querySelector(".t a"), x = li.querySelector(".x");
     return { li:li, a:a, x:x, d:li.getAttribute("data-d"), o:li.getAttribute("data-o"),
              title:a.textContent, dek:x ? x.textContent : "", tool:li.classList.contains("tool"),
+             xtra:li.classList.contains("xtra"),
              outlet:li.querySelector(".o").textContent };
   });
   var pieces = rows.filter(function(r){ return !r.tool; });
+
+  /* one "more tools" line per year that has tools beyond the featured ones */
+  var opened = {};
+  groups.forEach(function(g){
+    if(!g.querySelector(".xtra")) return;
+    var li = document.createElement("li");
+    li.className = "xmore";
+    li.innerHTML = '<button type="button" aria-expanded="false"></button>';
+    g.querySelector("ul").appendChild(li);
+    li.firstChild.addEventListener("click", function(){
+      var y = g.getAttribute("data-year");
+      opened[y] = !opened[y];
+      render();
+    });
+  });
   $("q-label").textContent = "Search " + pieces.length + " pieces and " + (rows.length - pieces.length) + " tools";
 
   /* ---------- new since your last visit ---------- */
@@ -2357,7 +2929,7 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
     svg += '<text x="0" y="' + (H + 13) + '">' + y0 + '</text>';
     [2010, 2016].forEach(function(t){ if(t > y0 + 2 && t < y1 - 2) svg += '<text x="' + ((t - y0) * slot).toFixed(1) + '" y="' + (H + 13) + '">' + t + '</text>'; });
     svg += '<text x="' + W + '" y="' + (H + 13) + '" text-anchor="end">' + y1 + '</text></svg>';
-    chartEl.innerHTML = svg + '<figcaption>Pieces per year. Tap a year to see it; tap again to clear.</figcaption>';
+    chartEl.innerHTML = svg + '<figcaption>Pieces per year. Tap a bar for just that year.</figcaption>';
   })();
   function pickYear(g){
     var y = g.getAttribute("data-y");
@@ -2383,8 +2955,11 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
     var w = words(state.q), shown = 0, perYear = {};
     /* nothing has every word: fall back to anything with at least one */
     var any = w.length > 1 && !rows.some(function(r){ return passes(r, w, false); });
+    /* the extra tools stay folded unless someone is searching or asked for tools */
+    var fold = !w.length && state.from !== "tool", folded = {};
     rows.forEach(function(r){
-      var ok = passes(r, w, any);
+      var ok = passes(r, w, any), y = r.d.slice(0,4);
+      if(ok && fold && r.xtra && !opened[y]){ folded[y] = (folded[y] || 0) + 1; ok = false; }
       r.li.hidden = !ok;
       if(ok){ shown++; perYear[r.d.slice(0,4)] = (perYear[r.d.slice(0,4)] || 0) + 1; }
       if(w.length){
@@ -2392,7 +2967,7 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
         if(r.x){
           r.x.innerHTML = hl(r.dek, w);
           /* a piece found by its summary shows the summary, so the match makes sense */
-          if(!r.tool){
+          if(!r.tool || r.xtra){
             var t = norm(r.title);
             r.x.hidden = !ok || w.every(function(x){ return t.indexOf(x) !== -1; }) ||
               (any && w.some(function(x){ return t.indexOf(x) !== -1; }));
@@ -2400,13 +2975,18 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
         }
       } else {
         r.a.textContent = r.title;
-        if(r.x){ r.x.textContent = r.dek; if(!r.tool) r.x.hidden = true; }
+        if(r.x){ r.x.textContent = r.dek; if(!r.tool || r.xtra) r.x.hidden = true; }
       }
     });
     groups.forEach(function(g){
-      var n = perYear[g.getAttribute("data-year")] || 0;
-      g.hidden = !n;
+      var y = g.getAttribute("data-year"), n = perYear[y] || 0, more = g.querySelector(".xmore");
+      g.hidden = !n && !folded[y];
       g.querySelector(".yn").textContent = n + (n === 1 ? " item" : " items");
+      if(!more) return;
+      var k = g.querySelectorAll(".xtra").length;
+      more.hidden = !fold || (!folded[y] && !opened[y]);
+      more.firstChild.textContent = opened[y] ? "Fold the other " + k + " tools back up" : folded[y] + " more tools from " + y;
+      more.firstChild.setAttribute("aria-expanded", opened[y] ? "true" : "false");
     });
     [].forEach.call(fEl.querySelectorAll("button"), function(b){
       b.setAttribute("aria-pressed", b.getAttribute("data-from") === state.from ? "true" : "false");

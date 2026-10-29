@@ -11,9 +11,13 @@ Sources:
   data/archive-static.json Daily News, Sun, Post, Politico and Slate pieces (fixed)
   Substack archive API     https://joshgreenman.substack.com/api/v1/archive
   Vital City Ghost API     https://vital-city.ghost.io/ghost/api/content/posts/
-  data/tools.json          hand-picked tools that always appear
-  Experiments manifest     the newest few tools, read from each one's own
-                           <title> and <meta name="description">
+  data/tools.json          hand-picked tools, shown in full
+  Experiments manifest     every other public tool. The newest few are shown
+                           in full beside the hand-picked ones; the rest fold
+                           into one line per year. Titles and summaries come
+                           from each tool's own <title> and
+                           <meta name="description">, cached in
+                           data/tool-meta.json
   shots/<slug>.jpg         screenshots for hover previews, if present
 
     python3 build.py           rebuild the list
@@ -44,6 +48,7 @@ OVERRIDES = os.path.join(HERE, "data", "overrides.json")
 CACHE = os.path.join(HERE, "data", "substack-cache.json")
 STATIC = os.path.join(HERE, "data", "archive-static.json")
 TOOLS = os.path.join(HERE, "data", "tools.json")
+TOOL_META = os.path.join(HERE, "data", "tool-meta.json")
 SHOTS = os.path.join(HERE, "shots")
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
@@ -60,7 +65,8 @@ MANIFEST = (
 )
 EXPERIMENTS_PAGES = "https://joshgreenman1973.github.io/experiments/"
 
-NEW_EXPERIMENTS = 4        # newest tools added to the hand-picked ones
+NEW_EXPERIMENTS = 4        # newest tools shown in full beside the hand-picked ones
+MIN_TOOLS = 60             # fewer public tools than this means the manifest broke
 MIN_WRITING = 6            # fewer than this from Substack + Vital City means a source broke
 MIN_STATIC = 300           # the fixed archive should never shrink below this
 UA = "joshgreenman.com site builder (+https://joshgreenman.com)"
@@ -324,7 +330,7 @@ def collect_writing(cfg):
 def split_title(t):
     """'Orrery - the music of the spheres' -> 'Orrery'."""
     t = smarten(t)
-    for sep in (" — ", " – ", " - ", ": "):
+    for sep in (" — ", " – ", " - ", " · ", ": "):
         if sep in t:
             head = t.split(sep)[0].strip()
             if len(head) >= 4:
@@ -333,7 +339,9 @@ def split_title(t):
 
 
 def page_meta(url):
-    """The project's own <title> and description. None if either is missing."""
+    """The project's own <title> and description. None if the page can't be
+    fetched; a title with an empty dek if the description is missing or
+    unusable."""
     try:
         raw = get(url, as_json=False)
     except (urllib.error.URLError, ValueError, UnicodeError):
@@ -341,13 +349,13 @@ def page_meta(url):
     t = re.search(r"<title[^>]*>(.*?)</title>", raw, re.S | re.I)
     d = re.search(r"<meta[^>]+name=(['\"])description\1[^>]*content=(['\"])(.*?)\2",
                   raw, re.S | re.I)
-    if not t or not d:
+    if not t:
         return None
     title = split_title(html.unescape(re.sub(r"\s+", " ", t.group(1))))
-    dek = undash(smarten(html.unescape(re.sub(r"\s+", " ", d.group(3)))))
-    if not title or not (50 <= len(dek) <= 240) or not dek.endswith((".", "?")):
-        return None
-    return {"title": title, "dek": dek}
+    dek = undash(smarten(html.unescape(re.sub(r"\s+", " ", d.group(3))))) if d else ""
+    if not (50 <= len(dek) <= 240) or not dek.endswith((".", "?")):
+        dek = ""
+    return {"title": title, "dek": dek} if title else None
 
 
 def live_url(p):
@@ -361,6 +369,9 @@ def live_url(p):
 
 
 def collect_experiments(cfg, already_linked):
+    """Every public tool in the manifest that isn't hand-picked, newest
+    first. A tool whose page won't load is left out; one already in the
+    cache keeps its cached copy."""
     try:
         manifest = get(MANIFEST)
     except (urllib.error.URLError, ValueError) as e:
@@ -368,9 +379,14 @@ def collect_experiments(cfg, already_linked):
     projects = manifest.get("projects") or []
     if len(projects) < 50:
         die("manifest returned only %d projects" % len(projects))
+    try:
+        with open(TOOL_META, encoding="utf-8") as f:
+            cache = json.load(f)
+    except (OSError, ValueError):
+        cache = {}
 
     deny = set(cfg["experiment_deny"])
-    seen, candidates = set(), []
+    seen, picked = set(), []
     for p in sorted(projects, key=lambda p: p.get("created") or "", reverse=True):
         url = live_url(p)
         if not url.startswith("https://joshgreenman1973.github.io/"):
@@ -380,27 +396,24 @@ def collect_experiments(cfg, already_linked):
         if url in seen or url.rstrip("/") in already_linked:
             continue
         seen.add(url)
-        candidates.append(p)
-
-    picked = []
-    for p in candidates[:10]:
-        meta = page_meta(live_url(p))
+        meta = cache.get(url) or page_meta(url)
         if not meta:
-            sys.stderr.write("  skipped %s (no usable title/description)\n"
-                             % p.get("name"))
+            sys.stderr.write("  skipped %s (page didn't load)\n" % p.get("name"))
             continue
+        cache[url] = meta
         picked.append({
-            "url": live_url(p),
+            "url": url,
             "date": (p.get("created") or "")[:10],
-            "title": cfg["experiment_titles"].get(p["name"], meta["title"]),
+            "title": cfg["experiment_titles"].get(p["name"], split_title(meta["title"])),
             "dek": cfg["experiment_deks"].get(p["name"], meta["dek"]),
+            "featured": len(picked) < NEW_EXPERIMENTS and bool(meta["dek"]),
         })
-        if len(picked) == NEW_EXPERIMENTS:
-            break
 
-    if len(picked) < 2:
-        die("found only %d publishable new experiments, expected at least 2"
-            % len(picked))
+    if len(picked) + len(already_linked) < MIN_TOOLS:
+        die("found only %d public tools, expected at least %d"
+            % (len(picked) + len(already_linked), MIN_TOOLS))
+    with open(TOOL_META, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=1, sort_keys=True)
     return picked
 
 
@@ -436,12 +449,12 @@ def collect_tools(cfg):
     with open(TOOLS, encoding="utf-8") as f:
         curated = json.load(f).get("tools") or []
     linked = {t["url"].rstrip("/") for t in curated}
-    newest = collect_experiments(cfg, linked)
+    rest = collect_experiments(cfg, linked)
     tools = [{"title": t["title"], "dek": t["dek"], "url": t["url"],
-              "date": t["date"]} for t in curated + newest]
+              "date": t["date"], "featured": True} for t in curated] + rest
     for t in tools:
         t["outlet"] = "Tool"
-    return tools, newest
+    return tools, [t for t in rest if t["featured"]]
 
 
 def merge(static, writing, tools):
@@ -504,18 +517,19 @@ def render_list(items):
         out.append('  <ul>')
         for it in group:
             tool = it["outlet"] == "Tool"
+            extra = tool and not it.get("featured")
             shot = ""
             if tool and os.path.exists(os.path.join(SHOTS, slug_of(it["url"]) + ".jpg")):
                 shot = ' data-shot="shots/%s.jpg"' % esc(slug_of(it["url"]))
             dek = undash(smarten(it.get("dek") or ""))
             out.append('    <li class="it%s" data-d="%s" data-o="%s">'
-                       % (" tool" if tool else "", esc(it["date"]),
+                       % (" tool xtra" if extra else " tool" if tool else "", esc(it["date"]),
                           OUTLET_KEYS.get(it["outlet"], "other")))
             out.append('      <span class="d">%s</span>' % esc(ap_date(it["date"])))
             line = ('      <span class="t"><a href="%s" target="_blank" rel="noopener"%s>%s</a>'
                     % (esc(it["url"]), shot, esc(it["title"])))
             if dek:
-                line += ('<span class="x">%s</span>' if tool
+                line += ('<span class="x">%s</span>' if tool and not extra
                          else '<span class="x dek" hidden>%s</span>') % esc(dek)
             out.append(line + '</span>')
             out.append('      <span class="o">%s</span>' % esc(it["outlet"]))
@@ -552,10 +566,11 @@ def main():
     print("writing: %d from Substack and Vital City, newest %s (%s)"
           % (len(writing), writing[0]["title"], writing[0]["date"]))
     tools, newest = collect_tools(cfg)
-    print("tools: %d, newest %s" % (len(tools), ", ".join(
+    print("tools: %d, %d in full, newest %s" % (
+        len(tools), sum(1 for t in tools if t["featured"]), ", ".join(
         "%s (%s)" % (t["title"], t["date"]) for t in newest)))
     if "--shots" in sys.argv:
-        take_shots(tools)
+        take_shots([t for t in tools if t["featured"]])
 
     items = merge(static, writing, tools)
     print("list: %d items, %s to %s"

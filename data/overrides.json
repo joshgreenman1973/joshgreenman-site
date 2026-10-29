@@ -148,8 +148,12 @@
     "house-style",
     "nypd-compstat-scraper",
     "graveyard-of-ideas",
-    "nyc-today"
+    "nyc-today",
+    "singing-stairs-app"
   ],
-  "experiment_titles": {},
+  "experiment_titles": {
+    "nyc-population-atlas": "New York City population atlas",
+    "nyc-people-vs-buildings": "People vs. buildings"
+  },
   "experiment_deks": {}
 }
