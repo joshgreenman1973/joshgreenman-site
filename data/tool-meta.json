@@ -135,6 +135,10 @@
   "dek": "Twenty-five measures of New York City in September 2001 and today, each one linked to a fetched source and a verbatim quote.",
   "title": "25 ways New York City has changed since 9/11"
  },
+ "https://joshgreenman1973.github.io/experiments/nyc-small-high-schools/": {
+  "dek": "How many New York City high schools have fewer than 250, 300 and 350 students, from 1994-95 to 2025-26, and how much more small schools spend per student.",
+  "title": "New York City’s small high schools"
+ },
  "https://joshgreenman1973.github.io/experiments/nyc-special-ed-spending/": {
   "dek": "",
   "title": "New York City special education due process spending tracker"
