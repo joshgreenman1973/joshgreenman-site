@@ -47,6 +47,10 @@
   "dek": "Every apartment combination filing in NYC from 2000 to 2020: where owners merged two or more units into one, mapped from Department of Buildings records.",
   "title": "NYC apartment combinations map"
  },
+ "https://joshgreenman1973.github.io/experiments/nyc-beyond-the-rent/": {
+  "dek": "What New York City households pay for electricity, gas heat, heating oil and water, how those prices have moved against the rest of New York State and the nation, and what drives them. Official sources throughout.",
+  "title": "Beyond the Rent"
+ },
  "https://joshgreenman1973.github.io/experiments/nyc-bus-tracker/": {
   "dek": "All Through the Town: every New York City bus on a live map, with weekly speed trends by route since April 2026.",
   "title": "All Through the Town"

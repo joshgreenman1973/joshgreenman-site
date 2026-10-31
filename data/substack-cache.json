@@ -1,7 +1,15 @@
 {
  "source": "https://joshgreenman.substack.com/api/v1/archive?sort=new&limit=50",
- "newest": "2026-08-08",
+ "newest": "2026-10-30",
  "posts": [
+  {
+   "title": "What the SHSAT Gets Wrong",
+   "subtitle": "It’s fine to use tests in elite high school admissions, but they — and this exam, scored this way — shouldn’t be the only metric",
+   "description": "It’s fine to use tests in elite high school admissions, but they — and this exam, scored this way — shouldn’t be the only metric",
+   "canonical_url": "https://joshgreenman.substack.com/p/what-the-shsat-gets-wrong",
+   "post_date": "2026-10-30T14:03:10.015Z",
+   "type": "newsletter"
+  },
   {
    "title": "How Mamdani's Doing: One Man's Assessment",
    "subtitle": "Getting a read on his mayoralty 220 days in",
@@ -176,14 +184,6 @@
    "description": "The former governor's campaign is mostly about what he's not.",
    "canonical_url": "https://joshgreenman.substack.com/p/cuomos-coalition-of-caution",
    "post_date": "2025-07-22T13:02:47.670Z",
-   "type": "newsletter"
-  },
-  {
-   "title": "The New York City Charter Revision Commission’s Significant Sin of Omission",
-   "subtitle": "Voters should have been given a chance to vote up or down on open primaries.",
-   "description": "Voters should have been given a chance to vote up or down on open primaries.",
-   "canonical_url": "https://joshgreenman.substack.com/p/the-new-york-city-charter-revision",
-   "post_date": "2025-07-18T19:30:24.221Z",
    "type": "newsletter"
   }
  ]
