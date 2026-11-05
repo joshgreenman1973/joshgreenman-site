@@ -359,6 +359,10 @@
   "dek": "A searchable map of where movies and television have filmed in New York City, from the silent era to today. Scrub through a century and watch the camera’s eye move across the city.",
   "title": "New York City on screen"
  },
+ "https://joshgreenman1973.github.io/nyc-open-sign/": {
+  "dek": "New York City shops, restaurants, bars and other places whose OpenStreetMap listings include hours, lit when they’re listed as open, for any hour of the week.",
+  "title": "Open Sign"
+ },
  "https://joshgreenman1973.github.io/nyc-overdue-reports/": {
   "dek": "Every report New York City agencies are legally required to publish, and whether they actually did.",
   "title": "Overdue"
