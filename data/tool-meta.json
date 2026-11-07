@@ -131,6 +131,10 @@
   "dek": "",
   "title": "Public vs Private"
  },
+ "https://joshgreenman1973.github.io/experiments/nyc-school-building-utilization/": {
+  "dek": "Every New York City public school building in the 2025: 26 Blue Book: 213,528 more seats than students citywide, 337 buildings over capacity, and crowded and half-empty buildings in all 32 school districts.",
+  "title": "The empty classroom and the crowded one"
+ },
  "https://joshgreenman1973.github.io/experiments/nyc-sightlines/": {
   "dek": "Which of 16 New York landmarks, and the rising and setting sun, you can see at street level from every street, sidewalk and park in the five boroughs.",
   "title": "New York Sightlines"
@@ -166,6 +170,10 @@
  "https://joshgreenman1973.github.io/experiments/nyc-where-new-york-lives/": {
   "dek": "New York City’s population density at every census from 1910 to 2020, drawn as a landscape that rises where more people live.",
   "title": "Where New York lives"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-where-to-sit/": {
+  "dek": "A walk-time map of every public seat New York City records: benches, bus shelters, plazas, privately owned public spaces and parks. 18 percent of the land where New Yorkers live is more than a five-minute walk from one.",
+  "title": "Where you can sit down"
  },
  "https://joshgreenman1973.github.io/experiments/vc-two-three-legged-stools/": {
   "dek": "",
