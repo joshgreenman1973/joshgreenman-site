@@ -75,6 +75,10 @@
   "dek": "",
   "title": "Per-pupil spending in New York City public schools"
  },
+ "https://joshgreenman1973.github.io/experiments/nyc-elected-directory/": {
+  "dek": "Phone numbers, emails, office addresses and named staff for the 175 people elected to represent New York City in Washington, Albany and City Hall, and the 24 who won seats on Nov. 3, 2026.",
+  "title": "Who represents New York City"
+ },
  "https://joshgreenman1973.github.io/experiments/nyc-enrollment/": {
   "dek": "",
   "title": "NYC K-12 Enrollment Shifts (1940-2025)"
