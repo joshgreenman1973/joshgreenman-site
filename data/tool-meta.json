@@ -111,6 +111,10 @@
   "dek": "Every New York City Council district and community district, measured by the homes it added since 2010, the income-restricted homes the city financed, and the city’s own 2030 housing targets.",
   "title": "Who builds New York"
  },
+ "https://joshgreenman1973.github.io/experiments/nyc-how-its-doing/": {
+  "dek": "An independent annual account of how New York City is doing for the people who live in it, built from public data and compared with the largest U.S. cities.",
+  "title": "How New York Is Doing"
+ },
  "https://joshgreenman1973.github.io/experiments/nyc-injury-dashboard/": {
   "dek": "",
   "title": "NYC Injury Hospitalizations"
