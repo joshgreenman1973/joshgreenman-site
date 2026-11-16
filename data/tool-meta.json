@@ -95,6 +95,10 @@
   "dek": "",
   "title": "NYC FOIL Tracker"
  },
+ "https://joshgreenman1973.github.io/experiments/nyc-future-tides/": {
+  "dek": "Where New York City’s new sea-level-rise maps put the daily high tide and the 100-year flood, decade by decade, and how many homes sit inside each line.",
+  "title": "The tide line"
+ },
  "https://joshgreenman1973.github.io/experiments/nyc-government-map/": {
   "dek": "",
   "title": "NYC Government Map"
@@ -154,6 +158,10 @@
  "https://joshgreenman1973.github.io/experiments/nyc-special-ed-spending/": {
   "dek": "",
   "title": "New York City special education due process spending tracker"
+ },
+ "https://joshgreenman1973.github.io/experiments/nyc-street-pace/": {
+  "dek": "How fast traffic moves on 351 New York City street segments, hour by hour, from the city’s E-ZPass readers, before and after congestion pricing.",
+  "title": "Street pace"
  },
  "https://joshgreenman1973.github.io/experiments/nyc-super-speeders/": {
   "dek": "",
