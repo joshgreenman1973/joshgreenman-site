@@ -153,6 +153,21 @@ mark{background:var(--mark);color:inherit;padding:0 .05em}
 /* screenshot that follows the pointer over a tool (mouse and trackpad only) */
 #peek{position:fixed;z-index:30;width:300px;aspect-ratio:16/10;object-fit:cover;object-position:top left;pointer-events:none;border:1px solid var(--line);box-shadow:0 8px 28px rgba(0,0,0,.2);background:var(--panel)}
 
+/* spot color: the red accent, used sparingly. Link underlines in prose carry
+   a tint of it, the chosen filter and each year's rule get a short stroke of
+   it, and pointer hovers go to it. Everything else stays ink on white. */
+:root{--accent-tint:color-mix(in srgb,var(--accent) 38%,transparent)}
+.bio a,.live a,.more a{text-decoration-color:var(--accent-tint)}
+.bio a:hover,.live a:hover,.more a:hover{text-decoration-color:var(--accent)}
+.filters button[aria-pressed="true"]{border-bottom-color:var(--accent)}
+.search input:focus{border-color:var(--accent)}
+.yh{position:relative}
+.yh::after{content:"";position:absolute;left:0;bottom:-1px;width:2.4rem;height:3px;background:var(--accent)}
+.it .t a:hover{text-decoration-color:var(--accent)}
+.elsewhere a:hover,.foot a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.otd .k{color:var(--accent)}
+.contact .send:hover:not([disabled]){background:var(--accent)}
+
 @media (max-width:820px){
   .wrap{padding-top:1.75rem}
   .cols{grid-template-columns:minmax(0,1fr);gap:0}
