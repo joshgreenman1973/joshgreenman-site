@@ -463,6 +463,10 @@
   "dek": "A live map of New York City showing what’s happening in every ZIP code right now, normalized by neighborhood size so big neighborhoods don’t always look loudest.",
   "title": "What’s happening in my ZIP"
  },
+ "https://joshgreenman1973.github.io/park-slope-pocket-city/": {
+  "dek": "Turn a hand-drawn, register-built miniature of Amsterdam’s Reguliersgracht and Keizersgracht. Explore its seasons, bridges and street life.",
+  "title": "Pocket City"
+ },
  "https://joshgreenman1973.github.io/place-name-proposals/": {
   "dek": "Every geographic name proposal pending before the U.S. Board on Geographic Names, from Quarterly Review Lists 450 to 464. Searchable case files, mapped.",
   "title": "Under review"
