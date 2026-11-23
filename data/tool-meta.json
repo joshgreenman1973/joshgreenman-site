@@ -191,6 +191,10 @@
   "dek": "A walk-time map of every public seat New York City records: benches, bus shelters, plazas, privately owned public spaces and parks. 18 percent of the land where New Yorkers live is more than a five-minute walk from one.",
   "title": "Where you can sit down"
  },
+ "https://joshgreenman1973.github.io/experiments/us-baby-names-race/": {
+  "dek": "Every name that has been in the top 50 for American boys or girls since 1880, raced year by year from Social Security records.",
+  "title": "The baby name horserace"
+ },
  "https://joshgreenman1973.github.io/experiments/vc-two-three-legged-stools/": {
   "dek": "",
   "title": "Two- and three-legged stools"
