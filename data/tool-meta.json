@@ -123,6 +123,10 @@
   "dek": "",
   "title": "The lots nobody fixes"
  },
+ "https://joshgreenman1973.github.io/experiments/nyc-night-flight/": {
+  "dek": "Radar counts of migrating birds over each borough, the overnight wind and what New Yorkers spotted the next day.",
+  "title": "Night Flight"
+ },
  "https://joshgreenman1973.github.io/experiments/nyc-payroll-browser/": {
   "dek": "An interactive browser for the NYC Citywide Payroll and MTA payroll datasets: top and lowest earners, overtime, agency spending, and headcount trends.",
   "title": "NYC Payroll Browser"
@@ -330,6 +334,10 @@
  "https://joshgreenman1973.github.io/nyc-green-book/": {
   "dek": "The City of New York’s official directory, rebuilt and kept current: 2,609 officials, 124 agencies, every phone number one tap away.",
   "title": "The Greener Book"
+ },
+ "https://joshgreenman1973.github.io/nyc-hills/": {
+  "dek": "Every walkable block in New York City colored by how steep it is, measured from federal lidar elevation data, with a router that finds the flattest or the hilliest walk between any two points.",
+  "title": "Uphill"
  },
  "https://joshgreenman1973.github.io/nyc-historic-districts/": {
   "dek": "An animated map of all 159 New York City historic districts and extensions and the years they were declared, from Brooklyn Heights in 1965 to today.",
